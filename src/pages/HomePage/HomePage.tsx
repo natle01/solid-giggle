@@ -4,51 +4,6 @@ import { Link } from 'react-router-dom';
 
 import styles from './HomePage.module.css';
 
-type Project = {
-  title: string;
-  url: string;
-  image: string;
-  description: string;
-  tech: Language[];
-};
-
-const PROJECTS: Project[] = [
-  {
-    title: 'Recipe Generator',
-    url: 'https://github.com/natle01',
-    image:
-      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80',
-    description:
-      'A recipe generator that helps users discover and create new dishes based on available ingredients.',
-    tech: ['typescript', 'react', 'css']
-  },
-  {
-    title: 'Design System Library',
-    url: 'https://github.com/natle01',
-    image:
-      'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=900&q=80',
-    description:
-      'A library of reusable design system components for building consistent and scalable user interfaces.',
-    tech: ['typescript', 'react', 'css']
-  },
-  {
-    title: 'Motion Graphics Portfolio',
-    url: 'https://github.com/natle01',
-    image:
-      'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80',
-    description:
-      'A portfolio showcasing motion graphics projects and animations.',
-    tech: ['typescript', 'react', 'css']
-  }
-];
-
-type WorkExperience = {
-  role: string;
-  company: string;
-  period: string;
-  summary: string;
-};
-
 const NAME_TAGS = [
   'UX',
   'user focus',
@@ -68,13 +23,54 @@ const NAME_TAGS = [
   'scrum'
 ];
 
+type Project = {
+  title: string;
+  url: string;
+  image: string;
+  description: string;
+  tech: Language[];
+};
+
+const PROJECTS: Project[] = [
+  {
+    title: 'Recipe Generator',
+    url: '',
+    image: '',
+    description:
+      'A recipe generator that helps users discover and create new dishes based on available ingredients.',
+    tech: ['typescript', 'react', 'css']
+  },
+  {
+    title: 'Design System Library',
+    url: '',
+    image: '',
+    description:
+      'A library of reusable design system components for building consistent and scalable user interfaces.',
+    tech: ['typescript', 'react', 'css']
+  },
+  {
+    title: 'Motion Graphics Portfolio',
+    url: '',
+    image: '',
+    description:
+      'A portfolio showcasing motion graphics projects and animations.',
+    tech: ['typescript', 'react', 'css']
+  }
+];
+
+type WorkExperience = {
+  role: string;
+  company: string;
+  period: string;
+  summary: string;
+};
+
 const WORK_EXPERIENCE: WorkExperience[] = [
   {
     role: 'User Experience Engineer II',
     company: 'Microsoft, Canada, BC',
     period: '2021 - Present',
-    summary:
-      'Designing and building accessible front-end experiences with strong usability, performance, and cross-team collaboration.'
+    summary: 'TBD'
   },
   {
     role: 'Backpacking ✈️🧳(Various Jobs)',
@@ -87,8 +83,7 @@ const WORK_EXPERIENCE: WorkExperience[] = [
     role: 'Front End Software Engineer II',
     company: 'CSG International, Australia, QLD',
     period: '2014 - 2018',
-    summary:
-      'Delivered front-end solutions for enterprise products with a focus on maintainable UI architecture and reliable user interactions.'
+    summary: 'TBD'
   }
 ];
 
@@ -102,11 +97,25 @@ const TECHNICAL_QUALIFICATIONS: WorkExperience[] = [
   }
 ];
 
+const PlaceholderImage = (): JSX.Element => (
+  <div
+    className={styles.placeholderImage}
+    role='img'
+    aria-label='Profile placeholder image'
+  >
+    Placeholder image
+  </div>
+);
+
 const ProjectCard = (props: Project): JSX.Element => {
   const { title, url, image, description, tech } = props;
   return (
     <article className={styles.card}>
-      <img src={image} alt={title} className={styles.cardImage} />
+      {image ? (
+        <img src={image} alt={title} className={styles.cardImage} />
+      ) : (
+        <PlaceholderImage />
+      )}
       <div className={styles.cardBody}>
         <h4 className={styles.cardTitle}>
           <a href={url} target='_blank' rel='noreferrer'>
@@ -151,13 +160,7 @@ const HomePage = (): JSX.Element => (
         ))}
       </div>
       <div className={styles.details}>
-        <div
-          className={styles.profileImagePlaceholder}
-          role='img'
-          aria-label='Profile placeholder image'
-        >
-          Placeholder image
-        </div>
+        <PlaceholderImage />
         <div>
           <p>
             I am passionate about building user-focused software with a strong

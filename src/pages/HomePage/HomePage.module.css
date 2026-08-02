@@ -53,10 +53,11 @@
   font-size: 2.6rem;
 }
 
-.profileImagePlaceholder {
+.placeholderImage {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 160px;
   max-height: 220px;
   background: black;
   border-radius: 12px;
