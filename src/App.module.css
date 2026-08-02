@@ -1,0 +1,54 @@
+.app {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.navItem {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.navItem:hover {
+  background: var(--bg-soft);
+  color: var(--text);
+}
+
+.active {
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 2rem 4rem;
+  overflow-y: auto;
+}
+
+section {
+  max-width: 900px;
+}
