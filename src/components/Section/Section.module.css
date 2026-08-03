@@ -1,13 +1,19 @@
 /* layer lets any consumer className override without higher specificity */
 @layer section-component {
-  .sectionContainer {
+  .section {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+    padding: 1rem;
+  }
+
+  .section--default {
     background: var(--bg-elevated);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 1rem;
+  }
+  .section--transparent {
+    background: transparent;
   }
 
   .sectionHeading {

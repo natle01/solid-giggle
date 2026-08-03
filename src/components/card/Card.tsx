@@ -100,7 +100,8 @@ export const Card = ({
   <article
     className={mergeClasses(
       styles.card,
-      appearance === 'flat' && styles.cardFlat,
+      rest.onClick && styles['card--animate'],
+      appearance === 'flat' && styles['card--flat'],
       className
     )}
     {...rest}

@@ -6,14 +6,27 @@ import styles from './Section.module.css';
 /**
  * Props for the Section component.
  */
-export type SectionProps = ComponentPropsWithoutRef<'div'>;
+export type SectionProps = ComponentPropsWithoutRef<'div'> & {
+  appearance?: 'default' | 'transparent';
+};
 
 /**
  * A shared section wrapper.
  * @returns A JSX element.
  */
-export const Section = ({ className, ...rest }: SectionProps): JSX.Element => (
-  <div className={mergeClasses(styles.sectionContainer, className)} {...rest} />
+export const Section = ({
+  appearance = 'default',
+  className,
+  ...rest
+}: SectionProps): JSX.Element => (
+  <div
+    className={mergeClasses(
+      styles.section,
+      styles[`section--${appearance}`],
+      className
+    )}
+    {...rest}
+  />
 );
 
 /**

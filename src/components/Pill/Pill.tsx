@@ -24,6 +24,7 @@ export const Pill = ({
   icon,
   compact = false,
   className,
+  children,
   ...rest
 }: PillProps): JSX.Element => (
   <span
@@ -32,5 +33,6 @@ export const Pill = ({
   >
     {icon ? <span className={styles.pillIcon}>{icon}</span> : null}
     <span>{label}</span>
+    {children}
   </span>
 );

@@ -64,7 +64,7 @@ const ProfileSection = (): JSX.Element => (
         <p>
           Making user friendly software that's beautiful, accessible, and
           performs well is my passion.
-          <blockquote>"Even if it works, doesn't mean it's usable."</blockquote>
+          <blockquote>"User friendly" is subjective.</blockquote>
           This is something I often remind myself when users interact with our
           product in ways we thought were selfexplainatory.
         </p>

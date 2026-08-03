@@ -35,12 +35,12 @@ function ContactPage() {
         <Section>
           <SectionHeader ariaLevel={3}>Availability</SectionHeader>
           <div className={styles.pillRow}>
-            <Pill label='Open to work' compact />
-            <Pill label='Full-time' compact />
-            <Pill label='Remote' compact />
+            {['Open to work', 'Full-time', 'Hybrid', 'Remote'].map((label) => (
+              <Pill key={label} label={label} compact />
+            ))}
           </div>
           <p>
-            I have full working rights in Australia, New Zealand, and Canada.
+            I have full working rights in Australia, Canada, and New Zealand.
           </p>
         </Section>
       </div>

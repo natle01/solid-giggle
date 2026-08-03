@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Card,
@@ -25,27 +26,54 @@ const PROJECTS: Project[] = [
     title: 'Recipe Generator',
     url: '',
     image: '',
-    description:
-      'A recipe generator that helps users discover and create new dishes based on available ingredients.',
+    description: 'TBD.',
     tech: ['typescript', 'react', 'css']
   },
   {
     title: 'Design System Library',
     url: '',
     image: '',
-    description:
-      'A library of reusable design system components for building consistent and scalable user interfaces.',
+    description: 'TBD.',
     tech: ['typescript', 'react', 'css']
   },
   {
     title: 'Motion Graphics Portfolio',
     url: '',
     image: '',
-    description:
-      'A portfolio showcasing motion graphics projects and animations.',
+    description: 'TBD',
     tech: ['typescript', 'react', 'css']
   }
 ];
+
+const ProjectCard = (props: Project): JSX.Element => {
+  const linkRef = React.useRef<HTMLAnchorElement>(null);
+  const handleClick = (): void => linkRef.current?.click();
+
+  return (
+    <Card onClick={handleClick}>
+      <CardImage src={props.image} alt={props.title} />
+      <CardBody>
+        <CardHeader ariaLevel={4}>
+          <a
+            ref={linkRef}
+            href={props.url}
+            target='_blank'
+            rel='noreferrer'
+            onClick={(event) => event.stopPropagation()}
+          >
+            {props.title}
+          </a>
+        </CardHeader>
+        <p>{props.description}</p>
+        <div className={styles.cardPills}>
+          {props.tech.map((item) => (
+            <Pill key={item} {...languages[item]} compact />
+          ))}
+        </div>
+      </CardBody>
+    </Card>
+  );
+};
 
 /**
  * A section displaying a list of projects i've worked on.
@@ -58,22 +86,7 @@ const ProjectsSection = (): JSX.Element => (
     </SectionHeader>
     <div className={styles.projectCards}>
       {PROJECTS.map((project) => (
-        <Card key={project.title}>
-          <CardImage src={project.image} alt={project.title} />
-          <CardBody>
-            <CardHeader ariaLevel={4}>
-              <a href={project.url} target='_blank' rel='noreferrer'>
-                {project.title}
-              </a>
-            </CardHeader>
-            <p>{project.description}</p>
-            <div className={styles.cardPills}>
-              {project.tech.map((item) => (
-                <Pill key={item} {...languages[item]} compact />
-              ))}
-            </div>
-          </CardBody>
-        </Card>
+        <ProjectCard key={project.title} {...project} />
       ))}
     </div>
   </Section>

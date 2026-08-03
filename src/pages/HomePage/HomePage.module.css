@@ -52,6 +52,15 @@
   margin: 0 2rem;
 }
 
+.languagePill {
+  position: relative;
+  transition: transform 300ms ease;
+}
+
+.languagePill:hover {
+  transform: translateY(-5px);
+}
+
 .hashTag {
   color: var(--text-muted);
   font-size: 0.78rem;

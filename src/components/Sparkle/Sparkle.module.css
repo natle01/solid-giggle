@@ -1,0 +1,33 @@
+@property --sparkle-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@layer sparkle-component {
+  .sparkle {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  .sparkle::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 3px; /* width of the ring */
+    pointer-events: none;
+    background: conic-gradient(
+      from var(--sparkle-angle),
+      #3b82f6,
+      #6366f1,
+      #a855f7,
+      #3b82f6
+    );
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+}
