@@ -2,7 +2,7 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 
 import HomePage from './pages/HomePage/HomePage';
 import ContactPage from './pages/ContactPage/ContactPage';
-import Projects from './pages/Projects.tx/Projects';
+import Projects from './pages/Projects/Projects';
 
 import styles from './App.module.css';
 
@@ -33,17 +33,21 @@ const Navigation = ({ links }: NavigationProps): JSX.Element => (
   </nav>
 );
 
+/**
+ * The main application component that sets up routing and navigation.
+ * @returns A JSX element.
+ */
 const App = (): JSX.Element => (
   <div className={styles.app}>
     <header className={styles.banner}>
-      <h1 className={styles.logo}>Natalie Wainwright's portfolio</h1>
+      <h1 className={styles.logo}>Welcome</h1>
       <Navigation links={ROUTES.map(({ ext, label }) => ({ ext, label }))} />
     </header>
 
     <main>
       <Routes>
         {ROUTES.map(({ ext, element }) => (
-          <Route key={ext} path={ext} element={element} />
+          <Route key={ext} path={ext} element={<div>{element}</div>} />
         ))}
       </Routes>
     </main>

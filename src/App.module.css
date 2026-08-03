@@ -41,6 +41,11 @@ nav {
   color: var(--primary-ink);
 }
 
+.active:hover {
+  background: var(--primary-strong);
+  color: var(--primary-ink);
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -49,6 +54,9 @@ main {
   overflow-y: auto;
 }
 
-section {
+main > * {
   max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

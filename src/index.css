@@ -24,3 +24,24 @@ body {
 a {
   color: var(--link);
 }
+
+a:hover {
+  color: var(--primary-strong);
+  text-decoration: none;
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0 12px 12px 0;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  background: linear-gradient(
+    135deg,
+    rgba(117, 167, 255, 0.08),
+    rgba(20, 27, 40, 0.65)
+  );
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+}

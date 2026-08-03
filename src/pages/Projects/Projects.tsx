@@ -1,5 +1,6 @@
-import styles from './Projects.module.css';
-
+/**
+ * Programming languages.
+ */
 export type Language =
   | 'angular'
   | 'css'
@@ -14,11 +15,17 @@ export type Language =
   | 'storybook'
   | 'typescript';
 
+/**
+ * Programming language item.
+ */
 export type LanguageItem = {
   label: string;
   icon: string;
 };
 
+/**
+ * A record of programming languages and their corresponding labels and icons.
+ */
 export const languages: Record<Language, LanguageItem> = {
   typescript: { label: 'TypeScript', icon: '🧩' },
   javascript: { label: 'JavaScript', icon: '✨' },
@@ -34,24 +41,16 @@ export const languages: Record<Language, LanguageItem> = {
   storybook: { label: 'Storybook', icon: '📚' }
 };
 
-type LanguagePillProps = {
-  item: LanguageItem;
-  compact?: boolean;
-};
-
-export const LanguagePill = ({ item, compact = false }: LanguagePillProps) => (
-  <span className={`${styles.pill} ${compact ? styles.compact : ''}`}>
-    {item.icon ? <span className={styles.pillIcon}>{item.icon}</span> : null}
-    <span>{item.label}</span>
-  </span>
-);
-
+/**
+ * A section displaying my recent projects.
+ * @returns A JSX element.
+ */
 const Projects = () => {
   return (
-    <section>
+    <>
       <h2>Projects</h2>
       <p>Here are some of my recent projects.</p>
-    </section>
+    </>
   );
 };
 
