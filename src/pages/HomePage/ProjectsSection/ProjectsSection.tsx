@@ -5,13 +5,13 @@ import {
   CardBody,
   CardHeader,
   CardImage
-} from '../../../components/card/Card';
+} from '../../../components/Card/Card';
 import { Pill } from '../../../components/Pill/Pill';
 import { Section, SectionHeader } from '../../../components/Section/Section';
 import { languages } from '../../Projects/Projects';
 import type { Language } from '../../Projects/Projects';
 
-import styles from '../HomePage.module.css';
+import styles from './ProjectsSection.module.css';
 
 type Project = {
   title: string;
@@ -25,7 +25,8 @@ const PROJECTS: Project[] = [
   {
     title: 'Recipe Generator',
     url: '',
-    image: '',
+    image:
+      'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80',
     description: 'TBD.',
     tech: ['typescript', 'react', 'css']
   },

@@ -1,5 +1,5 @@
 import { Section } from '../../../components/Section/Section';
-import styles from '../HomePage.module.css';
+import styles from './ProfileSection.module.css';
 
 const TAGS = [
   'UX',

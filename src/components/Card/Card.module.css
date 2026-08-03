@@ -13,6 +13,7 @@
 
   .card--animate:hover {
     border-color: var(--border-bright);
+    cursor: pointer;
   }
 
   .card--animate:hover .cardImage {

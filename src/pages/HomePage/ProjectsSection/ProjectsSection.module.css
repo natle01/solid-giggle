@@ -1,0 +1,19 @@
+.projectHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.projectCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.cardPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-top: auto;
+}

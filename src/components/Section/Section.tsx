@@ -7,7 +7,7 @@ import styles from './Section.module.css';
  * Props for the Section component.
  */
 export type SectionProps = ComponentPropsWithoutRef<'div'> & {
-  appearance?: 'default' | 'transparent';
+  appearance?: 'default' | 'transparent' | 'darker';
 };
 
 /**

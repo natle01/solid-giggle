@@ -3,10 +3,6 @@
   align-items: center;
 }
 
-.languages {
-  align-items: center;
-}
-
 .jobTitle {
   margin: 0;
   letter-spacing: 0.08em;
@@ -52,15 +48,6 @@
   margin: 0 2rem;
 }
 
-.languagePill {
-  position: relative;
-  transition: transform 300ms ease;
-}
-
-.languagePill:hover {
-  transform: translateY(-5px);
-}
-
 .hashTag {
   color: var(--text-muted);
   font-size: 0.78rem;
@@ -70,26 +57,6 @@
 .hashTag + .hashTag::before {
   content: '•';
   margin-right: 0.4rem;
-}
-
-.projectHeading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.projectCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-}
-
-.cardPills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem;
-  margin-top: auto;
 }
 
 @media (max-width: 760px) {

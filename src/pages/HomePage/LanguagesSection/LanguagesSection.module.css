@@ -1,0 +1,19 @@
+.languages {
+  align-items: center;
+}
+
+.pillContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.languagePill {
+  position: relative;
+  transition: transform 300ms ease;
+}
+
+.languagePill:hover {
+  transform: translateY(-5px);
+}

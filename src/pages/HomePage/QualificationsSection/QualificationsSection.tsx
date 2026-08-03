@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader } from '../../../components/card/Card';
+import { Card, CardBody, CardHeader } from '../../../components/Card/Card';
 import { Section, SectionHeader } from '../../../components/Section/Section';
 
 type Experience = {

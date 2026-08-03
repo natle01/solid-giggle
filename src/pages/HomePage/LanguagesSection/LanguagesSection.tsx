@@ -5,7 +5,7 @@ import { Sparkle } from '../../../components/Sparkle/Sparkle';
 import { languages } from '../../Projects/Projects';
 import type { LanguageItem } from '../../Projects/Projects';
 
-import styles from '../HomePage.module.css';
+import styles from './LanguagesSection.module.css';
 
 const LanguagePill = (item: LanguageItem): JSX.Element => {
   const sparkleAnimation = useRef<Animation | null>(null);
@@ -39,7 +39,7 @@ const LanguagePill = (item: LanguageItem): JSX.Element => {
 const LanguagesSection = (): JSX.Element => (
   <Section appearance='transparent' className={styles.languages}>
     <SectionHeader>Languages 👾</SectionHeader>
-    <div className={styles.tagContainer}>
+    <div className={styles.pillContainer}>
       {Object.values(languages).map((item) => (
         <LanguagePill key={item.label} {...item} />
       ))}

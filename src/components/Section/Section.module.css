@@ -5,15 +5,21 @@
     flex-direction: column;
     gap: 0.6rem;
     padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
   }
 
   .section--default {
     background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 14px;
   }
+
+  .section--darker {
+    background: var(--bg);
+  }
+
   .section--transparent {
     background: transparent;
+    border: none;
   }
 
   .sectionHeading {

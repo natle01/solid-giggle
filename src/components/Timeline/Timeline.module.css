@@ -1,0 +1,49 @@
+@layer timeline-component {
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0.35rem;
+    bottom: 0.35px;
+    left: 0.35rem;
+    border: 1px solid var(--border);
+  }
+
+  .entry {
+    margin-left: 1.5rem;
+    position: relative;
+  }
+
+  .entry::before {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    left: -1.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-bright);
+  }
+
+  .timelineHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .timelineHeader > *:first-child {
+    margin: 0;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+}
