@@ -8,8 +8,8 @@ import {
 } from '../../../components/Card/Card';
 import { Pill } from '../../../components/Pill/Pill';
 import { Section, SectionHeader } from '../../../components/Section/Section';
-import { languages } from '../../Projects/Projects';
-import type { Language } from '../../Projects/Projects';
+import { techStack } from '../../Projects/Projects';
+import type { Technology } from '../../Projects/Projects';
 
 import styles from './ProjectsSection.module.css';
 
@@ -18,7 +18,7 @@ type Project = {
   url: string;
   image: string;
   description: string;
-  tech: Language[];
+  tech: Technology[];
 };
 
 const PROJECTS: Project[] = [
@@ -68,7 +68,7 @@ const ProjectCard = (props: Project): JSX.Element => {
         <p>{props.description}</p>
         <div className={styles.cardPills}>
           {props.tech.map((item) => (
-            <Pill key={item} {...languages[item]} compact />
+            <Pill key={item} {...techStack[item]} compact />
           ))}
         </div>
       </CardBody>

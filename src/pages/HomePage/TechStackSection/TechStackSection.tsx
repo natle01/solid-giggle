@@ -2,12 +2,12 @@ import { useCallback, useRef } from 'react';
 import { Pill } from '../../../components/Pill/Pill';
 import { Section, SectionHeader } from '../../../components/Section/Section';
 import { Sparkle } from '../../../components/Sparkle/Sparkle';
-import { languages } from '../../Projects/Projects';
-import type { LanguageItem } from '../../Projects/Projects';
+import { techStack } from '../../Projects/Projects';
+import type { TechnologyItem } from '../../Projects/Projects';
 
-import styles from './LanguagesSection.module.css';
+import styles from './TechStackSection.module.css';
 
-const LanguagePill = (item: LanguageItem): JSX.Element => {
+const TechStackPill = (item: TechnologyItem): JSX.Element => {
   const sparkleAnimation = useRef<Animation | null>(null);
 
   const handleAnimationReady = useCallback((animation: Animation): void => {
@@ -20,7 +20,7 @@ const LanguagePill = (item: LanguageItem): JSX.Element => {
 
   return (
     <Pill
-      className={styles.languagePill}
+      className={styles.techStackPill}
       onMouseEnter={handleMouseEnter}
       {...item}
     >
@@ -33,18 +33,18 @@ const LanguagePill = (item: LanguageItem): JSX.Element => {
 };
 
 /**
- * A section displaying the programming languages I am proficient in.
+ * A section displaying the technology stack I use.
  * @returns A JSX element.
  */
-const LanguagesSection = (): JSX.Element => (
-  <Section appearance='transparent' className={styles.languages}>
-    <SectionHeader>Languages 👾</SectionHeader>
+const TechStackSection = (): JSX.Element => (
+  <Section appearance='transparent' className={styles.techStack}>
+    <SectionHeader>Tech Stack 👾</SectionHeader>
     <div className={styles.pillContainer}>
-      {Object.values(languages).map((item) => (
-        <LanguagePill key={item.label} {...item} />
+      {Object.values(techStack).map((item) => (
+        <TechStackPill key={item.label} {...item} />
       ))}
     </div>
   </Section>
 );
 
-export default LanguagesSection;
+export default TechStackSection;

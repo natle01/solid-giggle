@@ -1,9 +1,9 @@
 import { Section } from '../../../components/Section/Section';
 import styles from './ProfileSection.module.css';
 
-const TAGS = [
+const TAGS: string[] = [
   'UX',
-  'user focus',
+  'mentor',
   'design systems',
   'responsive UI',
   'performance',

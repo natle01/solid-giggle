@@ -1,9 +1,12 @@
 /**
- * Programming languages.
+ * Tech stack and languages used.
  */
-export type Language =
+export type Technology =
   | 'angular'
+  | 'azure'
   | 'css'
+  | 'figma'
+  | 'git'
   | 'html'
   | 'javascript'
   | 'jest'
@@ -16,28 +19,31 @@ export type Language =
   | 'typescript';
 
 /**
- * Programming language item.
+ * Technology stack item.
  */
-export type LanguageItem = {
+export type TechnologyItem = {
   label: string;
   icon: string;
 };
 
 /**
- * A record of programming languages and their corresponding labels and icons.
+ * A record of tech stack with their labels and icons.
  */
-export const languages: Record<Language, LanguageItem> = {
+export const techStack: Record<Technology, TechnologyItem> = {
   typescript: { label: 'TypeScript', icon: '🧩' },
   javascript: { label: 'JavaScript', icon: '✨' },
   html: { label: 'HTML', icon: '🌐' },
-  css: { label: 'CSS', icon: '🎨' },
-  sass: { label: 'LESS/SASS', icon: '🎨' },
-  angular: { label: 'Angular', icon: '🅰️' },
+  css: { label: 'CSS', icon: '🌈' },
+  sass: { label: 'LESS/SASS', icon: '🌈' },
   react: { label: 'React', icon: '⚛️' },
+  angular: { label: 'Angular', icon: '🅰️' },
   nodejs: { label: 'Node.js', icon: '🟢' },
   jest: { label: 'Jest', icon: '🧪' },
-  mocha: { label: 'Mocha/Chai', icon: '☕' },
-  selenium: { label: 'Selenium WebDriver', icon: '🕸️' },
+  mocha: { label: 'Mocha/Chai', icon: '🧪' },
+  selenium: { label: 'Selenium WebDriver', icon: '🧪' },
+  git: { label: 'Git', icon: '☁️' },
+  azure: { label: 'Azure/Jira', icon: '☁️' },
+  figma: { label: 'Figma', icon: '🎨' },
   storybook: { label: 'Storybook', icon: '📚' }
 };
 

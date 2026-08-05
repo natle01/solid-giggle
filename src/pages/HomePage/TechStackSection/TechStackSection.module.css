@@ -1,4 +1,4 @@
-.languages {
+.techStack {
   align-items: center;
 }
 
@@ -9,11 +9,11 @@
   gap: 0.4rem;
 }
 
-.languagePill {
+.techStackPill {
   position: relative;
   transition: transform 300ms ease;
 }
 
-.languagePill:hover {
+.techStackPill:hover {
   transform: translateY(-5px);
 }

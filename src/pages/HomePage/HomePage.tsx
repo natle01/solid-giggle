@@ -1,4 +1,4 @@
-import LanguagesSection from './LanguagesSection/LanguagesSection';
+import TechStackSection from './TechStackSection/TechStackSection';
 import ProfileSection from './ProfileSection/ProfileSection';
 import ProjectsSection from './ProjectsSection/ProjectsSection';
 import QualificationsSection from './QualificationsSection/QualificationsSection';
@@ -11,7 +11,7 @@ import WorkExperienceSection from './WorkExperienceSection/WorkExperienceSection
 const HomePage = (): JSX.Element => (
   <>
     <ProfileSection />
-    <LanguagesSection />
+    <TechStackSection />
     <ProjectsSection />
     <WorkExperienceSection />
     <QualificationsSection />
