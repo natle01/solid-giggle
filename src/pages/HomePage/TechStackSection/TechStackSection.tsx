@@ -1,13 +1,25 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef, type CSSProperties } from 'react';
 import { Pill } from '../../../components/Pill/Pill';
 import { Section, SectionHeader } from '../../../components/Section/Section';
 import { Sparkle } from '../../../components/Sparkle/Sparkle';
+import { useInView } from '../../../utils/useInView';
+import { hasHoverSupport, mergeClasses } from '../../../utils/utilities';
 import { techStack } from '../../Projects/Projects';
 import type { TechnologyItem } from '../../Projects/Projects';
 
 import styles from './TechStackSection.module.css';
 
-const TechStackPill = (item: TechnologyItem): JSX.Element => {
+const ANIMATION_DELAY = 150;
+
+const TechStackPill = (
+  props: TechnologyItem & {
+    index: number;
+    isContainerInView: boolean;
+    supportsHover: boolean;
+  }
+): JSX.Element => {
+  const { index, isContainerInView, supportsHover, ...item } = props;
+  const animationDelay = index * ANIMATION_DELAY;
   const sparkleAnimation = useRef<Animation | null>(null);
 
   const handleAnimationReady = useCallback((animation: Animation): void => {
@@ -18,10 +30,23 @@ const TechStackPill = (item: TechnologyItem): JSX.Element => {
     sparkleAnimation.current?.play();
   }, []);
 
+  useEffect(() => {
+    if (!isContainerInView) return;
+    const timeout = window.setTimeout(
+      () => sparkleAnimation.current?.play(),
+      animationDelay
+    );
+    return () => window.clearTimeout(timeout);
+  }, [isContainerInView]);
+
   return (
     <Pill
-      className={styles.techStackPill}
-      onMouseEnter={handleMouseEnter}
+      className={mergeClasses(
+        styles.techStackPill,
+        isContainerInView && styles.inView
+      )}
+      style={{ '--animation-delay': `${animationDelay}ms` } as CSSProperties}
+      onMouseEnter={supportsHover ? handleMouseEnter : undefined}
       {...item}
     >
       <Sparkle
@@ -36,15 +61,30 @@ const TechStackPill = (item: TechnologyItem): JSX.Element => {
  * A section displaying the technology stack I use.
  * @returns A JSX element.
  */
-const TechStackSection = (): JSX.Element => (
-  <Section appearance='transparent' className={styles.techStack}>
-    <SectionHeader>Tech Stack 👾</SectionHeader>
-    <div className={styles.pillContainer}>
-      {Object.values(techStack).map((item) => (
-        <TechStackPill key={item.label} {...item} />
-      ))}
-    </div>
-  </Section>
-);
+const TechStackSection = (): JSX.Element => {
+  const pillContainerRef = useRef<HTMLDivElement>(null);
+  const supportsHover = hasHoverSupport();
+  const isPillContainerInView = useInView(pillContainerRef, {
+    threshold: 0.5,
+    rootMargin: '0px 0px -20% 0px'
+  });
+
+  return (
+    <Section appearance='transparent' className={styles.techStack}>
+      <SectionHeader>Tech Stack 👾</SectionHeader>
+      <div ref={pillContainerRef} className={styles.pillContainer}>
+        {Object.values(techStack).map((item, index) => (
+          <TechStackPill
+            key={item.label}
+            index={index}
+            isContainerInView={isPillContainerInView}
+            supportsHover={supportsHover}
+            {...item}
+          />
+        ))}
+      </div>
+    </Section>
+  );
+};
 
 export default TechStackSection;

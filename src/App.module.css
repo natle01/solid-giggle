@@ -1,13 +1,14 @@
 .app {
-  max-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .banner {
   display: flex;
+  position: relative; /* For menu flyout positioning */
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   padding: 1rem 1.25rem;
   background: var(--bg-elevated);
   border-bottom: 1px solid var(--border);
@@ -21,6 +22,32 @@
 nav {
   display: flex;
   gap: 1rem;
+}
+
+.flyoutMenu {
+  display: none;
+  position: absolute;
+  top: 90%;
+  right: 0;
+  z-index: 1;
+  padding: 0.75rem;
+  background: inherit;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+.flyoutMenu[data-open='true'] {
+  display: block;
+}
+
+.flyoutMenu nav {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.menuButton {
+  background: none; /* Remove default button styles */
+  border: none; /* Remove default button styles */
 }
 
 .navItem {

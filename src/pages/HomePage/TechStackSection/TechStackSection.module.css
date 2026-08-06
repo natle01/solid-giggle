@@ -14,6 +14,28 @@
   transition: transform 300ms ease;
 }
 
-.techStackPill:hover {
-  transform: translateY(-5px);
+@media (hover: hover) {
+  .techStackPill:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.techStackPill.inView {
+  animation: mobile-pill-lift 600ms ease var(--animation-delay);
+}
+
+@keyframes mobile-pill-lift {
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .techStackPill:hover,
+  .techStackPill.inView {
+    transform: none;
+  }
 }

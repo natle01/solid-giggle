@@ -2,6 +2,10 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
 
+  /* Animation */
+  --animation-delay: 0ms;
+
+  /* Colors */
   --bg: #0c111b;
   --bg-elevated: #141b28;
   --bg-soft: #1b2535;
@@ -19,7 +23,8 @@ body {
   margin: 0;
   background: radial-gradient(circle at top, #162238 0%, var(--bg) 65%);
   color: var(--text);
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 }
 
 a {
@@ -64,16 +69,29 @@ blockquote::after {
   opacity: 0;
 }
 
-blockquote:hover::after {
-  opacity: 1;
-  animation: blockquote-shimmer 650ms linear;
-}
-
 @keyframes blockquote-shimmer {
   from {
     transform: translateX(-105%);
   }
   to {
     transform: translateX(105%);
+  }
+}
+
+blockquote.in-view::after {
+  opacity: 1;
+  animation: blockquote-shimmer 700ms linear;
+}
+
+@media (hover: hover) {
+  blockquote:hover::after {
+    opacity: 1;
+    animation: blockquote-shimmer 700ms linear;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  blockquote::after {
+    animation: none;
   }
 }

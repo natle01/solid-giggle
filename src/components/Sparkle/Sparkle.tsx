@@ -1,5 +1,5 @@
 import React, { type ComponentPropsWithoutRef } from 'react';
-import { mergeClasses } from '../../utils/utilities';
+import { mergeClasses, prefersReducedMotion } from '../../utils/utilities';
 import { animateSparkle } from '../../utils/motion';
 import styles from './Sparkle.module.css';
 
@@ -27,6 +27,7 @@ export const Sparkle = ({
   const sparkleRef = React.useRef<HTMLSpanElement>(null);
 
   React.useLayoutEffect(() => {
+    if (prefersReducedMotion()) return;
     if (!sparkleRef.current) return;
 
     const animation = animateSparkle(sparkleRef.current, options);
