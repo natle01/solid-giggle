@@ -1,11 +1,11 @@
-import { Card, CardBody, CardHeader } from '../../../components/Card/Card';
 import { Section, SectionHeader } from '../../../components/Section/Section';
+import styles from './QualificationsSection.module.css';
 
 type Experience = {
   degree: string;
   school: string;
   period: string;
-  summary: string;
+  description: string;
 };
 
 const QUALIFICATIONS: Experience[] = [
@@ -13,7 +13,7 @@ const QUALIFICATIONS: Experience[] = [
     degree: 'Bachelor: Games and Interactive Entertainment (Animation)',
     school: 'Queensland University of Technology (QUT), Australia, QLD',
     period: 'Graduated 2013',
-    summary:
+    description:
       'Completed formal training in interactive media and animation, with a foundation in creative and technical production workflows.'
   }
 ];
@@ -23,18 +23,22 @@ const QUALIFICATIONS: Experience[] = [
  * @returns A JSX element.
  */
 const QualificationsSection = (): JSX.Element => (
-  <Section>
-    <SectionHeader>Qualifications 🎓</SectionHeader>
-    {QUALIFICATIONS.map(({ degree, school, period, summary }) => (
-      <Card key={school} appearance='flat'>
-        <CardBody>
-          <CardHeader ariaLevel={4} subTitle={period}>
-            {degree}
-          </CardHeader>
-          <p>{school}</p>
-          <p>{summary}</p>
-        </CardBody>
-      </Card>
+  <Section appearance='transparent'>
+    <SectionHeader>Qualifications</SectionHeader>
+    {QUALIFICATIONS.map(({ degree, school, period, description }) => (
+      <article className={styles.entry} key={school}>
+        <div className={styles.meta}>
+          <div className={styles.symbol} aria-hidden='true'>
+            🎓
+          </div>
+          <span className={styles.period}>{period}</span>
+        </div>
+        <div className={styles.content}>
+          <h4 className={styles.degree}>{degree}</h4>
+          <p className={styles.school}>{school}</p>
+          <p>{description}</p>
+        </div>
+      </article>
     ))}
   </Section>
 );

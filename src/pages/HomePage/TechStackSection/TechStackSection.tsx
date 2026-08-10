@@ -63,9 +63,9 @@ const TechStackPill = (
  */
 const TechStackSection = (): JSX.Element => {
   const pillContainerRef = useRef<HTMLDivElement>(null);
-  const supportsHover = hasHoverSupport();
+  const supportsHover = hasHoverSupport;
   const isPillContainerInView = useInView(pillContainerRef, {
-    threshold: 0.5,
+    threshold: 0.3,
     rootMargin: '0px 0px -20% 0px'
   });
 

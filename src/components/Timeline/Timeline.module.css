@@ -1,49 +1,99 @@
 @layer timeline-component {
   .timeline {
-    position: relative;
+    display: grid;
+    grid-template-columns: max-content max-content 1fr;
+    column-gap: 1rem;
+  }
+
+  .meta {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.15rem;
+    padding-top: 3px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-align: right;
   }
 
-  .timeline::before {
-    content: '';
-    position: absolute;
-    top: 0.35rem;
-    bottom: 0.35px;
-    left: 0.35rem;
-    border: 1px solid var(--border);
-  }
-
-  .entry {
-    margin-left: 1.5rem;
+  .marker {
     position: relative;
+    min-height: 100%;
   }
 
-  .entry::before {
+  .marker::before {
     content: '';
     position: absolute;
-    top: 0.5rem;
-    left: -1.4rem;
-    width: 10px;
-    height: 10px;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 1px solid var(--border);
+  }
+
+  .marker::after {
+    content: '';
+    position: absolute;
+    top: 13px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: var(--border-bright);
   }
 
-  .timelineHeader {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
+  .markerFirst::after {
+    background: rgb(7, 196, 7);
   }
 
-  .timelineHeader > *:first-child {
+  .content {
+    opacity: 0;
+    transform: translateX(24px);
+    transition:
+      opacity 450ms ease,
+      transform 450ms ease;
+    margin-bottom: 20px;
+  }
+
+  .inView {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .company {
     margin: 0;
   }
 
-  .subtitle {
+  .title {
     color: var(--text-muted);
     font-size: 0.9rem;
+  }
+
+  @media (max-width: 760px) {
+    .timeline {
+      grid-template-columns: 1.2rem 1fr;
+    }
+
+    .meta {
+      grid-column: 1 / -1;
+      text-align: left;
+      margin: 0 0 0.35rem;
+      padding-top: 0;
+    }
+
+    .marker {
+      grid-column: 1;
+    }
+
+    .content {
+      grid-column: 2;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content {
+    opacity: 1;
+    transform: none;
   }
 }

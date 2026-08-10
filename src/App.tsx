@@ -49,7 +49,7 @@ const App = (): JSX.Element => {
     <div className={styles.app}>
       <header className={styles.banner}>
         <h1 className={styles.logo}>Welcome</h1>
-        {isTabletMode() ? (
+        {isTabletMode ? (
           <>
             <button
               className={mergeClasses(styles.menuButton, styles.navItem)}

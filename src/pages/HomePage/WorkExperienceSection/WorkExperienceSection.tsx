@@ -5,22 +5,25 @@ import Timeline, {
 
 const WORK_EXPERIENCE: TimelineItem[] = [
   {
-    title: 'User Experience Engineer II',
-    subtitle: 'Microsoft, Canada, BC',
-    date: '2021 - Present',
+    company: 'Microsoft',
+    role: 'User Experience Engineer II',
+    location: 'Vancouver, Canada',
+    date: 'Aug 2021 - Present',
     description: 'TBD'
   },
   {
-    title: 'Backpacking ✈️🧳(Various Jobs)',
-    subtitle: 'Canada, New Zealand',
-    date: '2019 - 2020',
+    company: 'Backpacking',
+    role: 'Various Jobs ✈️🧳',
+    location: 'Canada, New Zealand',
+    date: 'Jan 2019 - Jul 2021',
     description:
       'Worked across varied roles while traveling, building adaptability and strong communication across different cultures, communities, and people.'
   },
   {
-    title: 'Front End Software Engineer II',
-    subtitle: 'CSG International, Australia, QLD',
-    date: '2014 - 2018',
+    company: 'CSG International',
+    role: 'Front End Software Engineer II',
+    location: 'Brisbane, Australia',
+    date: 'May 2014 - Dec 2018',
     description: 'TBD'
   }
 ];
@@ -30,7 +33,7 @@ const WORK_EXPERIENCE: TimelineItem[] = [
  * @returns A JSX element.
  */
 const WorkExperienceSection = (): JSX.Element => (
-  <Section appearance='darker'>
+  <Section appearance='transparent'>
     <SectionHeader>Work Experience 🖥️</SectionHeader>
     <Timeline items={WORK_EXPERIENCE} />
   </Section>

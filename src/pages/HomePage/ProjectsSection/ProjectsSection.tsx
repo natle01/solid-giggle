@@ -25,8 +25,7 @@ const PROJECTS: Project[] = [
   {
     title: 'Recipe Generator',
     url: '',
-    image:
-      'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80',
+    image: '',
     description: 'TBD.',
     tech: ['typescript', 'react', 'css']
   },
@@ -81,7 +80,7 @@ const ProjectCard = (props: Project): JSX.Element => {
  * @returns A JSX element.
  */
 const ProjectsSection = (): JSX.Element => (
-  <Section>
+  <Section appearance='transparent'>
     <SectionHeader className={styles.projectHeading}>
       Projects 🛠️ <Link to='/Projects'>View all</Link>
     </SectionHeader>

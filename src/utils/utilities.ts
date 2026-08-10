@@ -6,19 +6,18 @@ export const mergeClasses = (
 ): string => classes.filter(Boolean).join(' ');
 
 /**
- * Returns whether the user prefers reduced motion.
+ * Whether the user prefers reduced motion when the module loads.
  */
-export const prefersReducedMotion = (): boolean =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+export const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)'
+).matches;
 
 /**
- * Returns whether the viewport is tablet-sized or smaller.
+ * Whether the viewport is tablet-sized or smaller when the module loads.
  */
-export const isTabletMode = (): boolean =>
-  window.matchMedia('(max-width: 1024px)').matches;
+export const isTabletMode = window.matchMedia('(max-width: 1024px)').matches;
 
 /**
- * Returns whether the primary input supports hover interactions.
+ * Whether the primary input supports hover when the module loads.
  */
-export const hasHoverSupport = (): boolean =>
-  window.matchMedia('(hover: hover)').matches;
+export const hasHoverSupport = window.matchMedia('(hover: hover)').matches;

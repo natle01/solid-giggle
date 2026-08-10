@@ -1,6 +1,5 @@
-import React from 'react';
+import { Blockquote } from '../../../components/Blockquote/Blockquote';
 import { Section } from '../../../components/Section/Section';
-import { useInView } from '../../../utils/useInView';
 import styles from './ProfileSection.module.css';
 
 const TAGS: string[] = [
@@ -37,9 +36,6 @@ const PlaceholderImage = (): JSX.Element => (
  * @returns A JSX element.
  */
 const ProfileSection = (): JSX.Element => {
-  const quoteRef = React.useRef<HTMLQuoteElement>(null);
-  const isQuoteInView = useInView(quoteRef, { threshold: 0.75 });
-
   return (
     <Section className={styles.profile}>
       <p className={styles.jobTitle}>User Experience Engineer</p>
@@ -70,14 +66,13 @@ const ProfileSection = (): JSX.Element => {
           <p>
             Making user friendly software that's beautiful, accessible, and
             performs well is my passion.
-            <blockquote
-              ref={quoteRef}
-              className={isQuoteInView ? 'in-view' : undefined}
-            >
-              "User friendly" is subjective.
-            </blockquote>
+          </p>
+          <Blockquote>
+            "User friendly" is subjective. Diverse opinions matter.
+          </Blockquote>
+          <p>
             This is something I often remind myself when users interact with our
-            product in ways we thought were selfexplainatory.
+            product in ways we thought were self-explanatory.
           </p>
           <p>
             This is my favourite part of the process as it's where the vision

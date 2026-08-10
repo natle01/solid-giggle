@@ -27,8 +27,7 @@ export const Sparkle = ({
   const sparkleRef = React.useRef<HTMLSpanElement>(null);
 
   React.useLayoutEffect(() => {
-    if (prefersReducedMotion()) return;
-    if (!sparkleRef.current) return;
+    if (prefersReducedMotion || !sparkleRef.current) return;
 
     const animation = animateSparkle(sparkleRef.current, options);
     onAnimationReady?.(animation);
