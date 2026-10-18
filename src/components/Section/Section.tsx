@@ -12,13 +12,13 @@ export type SectionProps = ComponentPropsWithoutRef<'div'> & {
 
 /**
  * A shared section wrapper.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
 export const Section = ({
   appearance = 'default',
   className,
   ...rest
-}: SectionProps): JSX.Element => (
+}: SectionProps): React.ReactElement => (
   <div
     className={mergeClasses(
       styles.section,
@@ -39,13 +39,13 @@ export type SectionHeadingProps = ComponentPropsWithoutRef<'div'> & {
 /**
  * A shared heading for sections.
  * @param ariaLevel Heading level exposed via aria-level (default 3).
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
 export const SectionHeader = ({
   ariaLevel = 3,
   className,
   ...rest
-}: SectionHeadingProps): JSX.Element => (
+}: SectionHeadingProps): React.ReactElement => (
   <div
     className={mergeClasses(styles.sectionHeading, className)}
     role='heading'

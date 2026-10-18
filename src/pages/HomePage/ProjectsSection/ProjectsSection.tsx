@@ -45,7 +45,7 @@ const PROJECTS: Project[] = [
   }
 ];
 
-const ProjectCard = (props: Project): JSX.Element => {
+const ProjectCard = (props: Project): React.ReactElement => {
   const linkRef = React.useRef<HTMLAnchorElement>(null);
   const handleClick = (): void => linkRef.current?.click();
 
@@ -77,9 +77,9 @@ const ProjectCard = (props: Project): JSX.Element => {
 
 /**
  * A section displaying a list of projects i've worked on.
- * @returns A JSX element.
+ * @returns A React.ReactElement.
  */
-const ProjectsSection = (): JSX.Element => (
+const ProjectsSection = (): React.ReactElement => (
   <Section appearance='transparent'>
     <SectionHeader className={styles.projectHeading}>
       Projects 🛠️ <Link to='/Projects'>View all</Link>

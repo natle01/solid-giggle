@@ -17,7 +17,7 @@ const TechStackPill = (
     isContainerInView: boolean;
     supportsHover: boolean;
   }
-): JSX.Element => {
+): React.ReactElement => {
   const { index, isContainerInView, supportsHover, ...item } = props;
   const animationDelay = index * ANIMATION_DELAY;
   const sparkleAnimation = useRef<Animation | null>(null);
@@ -59,9 +59,9 @@ const TechStackPill = (
 
 /**
  * A section displaying the technology stack I use.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
-const TechStackSection = (): JSX.Element => {
+const TechStackSection = (): React.ReactElement => {
   const pillContainerRef = useRef<HTMLDivElement>(null);
   const supportsHover = hasHoverSupport;
   const isPillContainerInView = useInView(pillContainerRef, {

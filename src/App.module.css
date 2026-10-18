@@ -6,7 +6,8 @@
 
 .banner {
   display: flex;
-  position: relative; /* For menu flyout positioning */
+  /* For menu flyout positioning */
+  position: relative;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
@@ -47,8 +48,10 @@ nav {
 }
 
 .menuButton {
-  background: none; /* Remove default button styles */
-  border: none; /* Remove default button styles */
+  /* Remove default button styles */
+  background: none;
+  /* Remove default button styles */
+  border: none;
 }
 
 .navItem {
@@ -82,9 +85,15 @@ main {
   overflow-y: auto;
 }
 
-main > * {
+main>* {
   max-width: 900px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+main>*:has([class*="fullWidth"]) {
+  width: 70%;
+  min-width: inherit;
+  max-width: 2000px;
 }

@@ -15,7 +15,7 @@ export type SparkleProps = ComponentPropsWithoutRef<'span'> & {
 /**
  * A wrapper that provides a rainbow cutout ring surface.
  * @remarks Parent element must have `position: relative` to ensure correct sparkle positioning.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
 export const Sparkle = ({
   playOnLoad = false,
@@ -23,7 +23,7 @@ export const Sparkle = ({
   onAnimationReady,
   className,
   ...rest
-}: SparkleProps): JSX.Element => {
+}: SparkleProps): React.ReactElement => {
   const sparkleRef = React.useRef<HTMLSpanElement>(null);
 
   React.useLayoutEffect(() => {

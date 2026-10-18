@@ -30,9 +30,9 @@ const WORK_EXPERIENCE: TimelineItem[] = [
 
 /**
  * A section displaying my work experience.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
-const WorkExperienceSection = (): JSX.Element => (
+const WorkExperienceSection = (): React.ReactElement => (
   <Section appearance='transparent'>
     <SectionHeader>Work Experience 🖥️</SectionHeader>
     <Timeline items={WORK_EXPERIENCE} />

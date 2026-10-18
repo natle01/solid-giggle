@@ -14,7 +14,7 @@ export type CardImageProps = ComponentPropsWithoutRef<'img'> & {
  * A card image with a built-in placeholder fallback.
  * @param src Image URL; renders a placeholder div when empty.
  * @param placeholderLabel Accessible label for the placeholder.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
 export const CardImage = ({
   src,
@@ -22,7 +22,7 @@ export const CardImage = ({
   placeholderLabel = 'Placeholder',
   className,
   ...rest
-}: CardImageProps): JSX.Element =>
+}: CardImageProps): React.ReactElement =>
   src ? (
     <img
       src={src}
@@ -42,12 +42,12 @@ export const CardImage = ({
 
 /**
  * A reusable body container for card content.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
 export const CardBody = ({
   className,
   ...rest
-}: ComponentPropsWithoutRef<'div'>): JSX.Element => (
+}: ComponentPropsWithoutRef<'div'>): React.ReactElement => (
   <div className={mergeClasses(styles.cardBody, className)} {...rest}></div>
 );
 
@@ -63,7 +63,7 @@ export type CardHeaderProps = ComponentPropsWithoutRef<'div'> & {
  * A reusable card header with an optional subtitle.
  * @param ariaLevel Heading level exposed via aria-level.
  * @param subTitle Secondary text rendered below the heading.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
 export const CardHeader = ({
   children,
@@ -71,7 +71,7 @@ export const CardHeader = ({
   subTitle,
   className,
   ...rest
-}: CardHeaderProps): JSX.Element => (
+}: CardHeaderProps): React.ReactElement => (
   <div className={mergeClasses(styles.cardHeader, className)} {...rest}>
     <div className={styles.cardTitle} role='heading' aria-level={ariaLevel}>
       {children}
@@ -90,13 +90,13 @@ export type CardProps = ComponentPropsWithoutRef<'article'> & {
 /**
  * A reusable card container.
  * @param appearance Visual variant: 'default' (elevated) or 'flat' (muted background).
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
 export const Card = ({
   appearance = 'default',
   className,
   ...rest
-}: CardProps): JSX.Element => (
+}: CardProps): React.ReactElement => (
   <article
     className={mergeClasses(
       styles.card,

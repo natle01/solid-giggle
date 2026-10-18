@@ -18,14 +18,14 @@ export type BlockquoteProps = ComponentPropsWithoutRef<'blockquote'> & {
 /**
  * Blockquote with shimmer animation when it enters the viewport and on hover.
  * @param options - Animation options for the shimmer effect.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
 export const Blockquote = ({
   options,
   className,
   onMouseEnter,
   ...rest
-}: BlockquoteProps): JSX.Element => {
+}: BlockquoteProps): React.ReactElement => {
   const quoteRef = useRef<HTMLQuoteElement>(null);
   const isQuoteInView = useInView(quoteRef, {
     threshold: 1,
