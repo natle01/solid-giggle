@@ -17,7 +17,7 @@ export type PillProps = ComponentPropsWithoutRef<'span'> & {
  * @param label Visible text.
  * @param icon Optional emoji or character shown before the label.
  * @param compact Reduced padding variant.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
 export const Pill = ({
   label,
@@ -26,7 +26,7 @@ export const Pill = ({
   className,
   children,
   ...rest
-}: PillProps): JSX.Element => (
+}: PillProps): React.ReactElement => (
   <span
     className={mergeClasses(styles.pill, compact && styles.compact, className)}
     {...rest}

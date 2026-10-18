@@ -6,9 +6,9 @@ import WorkExperienceSection from './WorkExperienceSection/WorkExperienceSection
 
 /**
  * The main homepage component that aggregates all sections.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
-const HomePage = (): JSX.Element => (
+const HomePage = (): React.ReactElement => (
   <>
     <ProfileSection />
     <TechStackSection />

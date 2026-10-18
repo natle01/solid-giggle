@@ -5,6 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import App from './App';
 
 import './index.css';
+import '@natle01/laughing-kookaburra/styles.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

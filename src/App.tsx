@@ -19,7 +19,7 @@ const LINKS = ROUTES.map(({ path, ...route }) => ({
   ...route
 }));
 
-const Navigation = (props: { onClick?: () => void }): JSX.Element => (
+const Navigation = (props: { onClick?: () => void }): React.ReactElement => (
   <nav>
     {LINKS.map((link, index) => (
       <NavLink
@@ -37,9 +37,9 @@ const Navigation = (props: { onClick?: () => void }): JSX.Element => (
 
 /**
  * The main application component that sets up routing and navigation.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
-const App = (): JSX.Element => {
+const App = (): React.ReactElement => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenuClick = useCallback((): void => {
     setIsMenuOpen((isOpen) => !isOpen);

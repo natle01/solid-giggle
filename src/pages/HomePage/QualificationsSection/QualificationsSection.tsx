@@ -20,9 +20,9 @@ const QUALIFICATIONS: Experience[] = [
 
 /**
  * A section displaying my educational qualifications.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
-const QualificationsSection = (): JSX.Element => (
+const QualificationsSection = (): React.ReactElement => (
   <Section appearance='transparent'>
     <SectionHeader>Qualifications</SectionHeader>
     {QUALIFICATIONS.map(({ degree, school, period, description }) => (

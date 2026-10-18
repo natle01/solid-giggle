@@ -21,7 +21,7 @@ const TAGS: string[] = [
   'scrum'
 ];
 
-const PlaceholderImage = (): JSX.Element => (
+const PlaceholderImage = (): React.ReactElement => (
   <div
     className={styles.placeholderImage}
     role='img'
@@ -33,9 +33,9 @@ const PlaceholderImage = (): JSX.Element => (
 
 /**
  * A section displaying my information, skills, and a brief bio.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
-const ProfileSection = (): JSX.Element => {
+const ProfileSection = (): React.ReactElement => {
   return (
     <Section className={styles.profile}>
       <p className={styles.jobTitle}>User Experience Engineer</p>

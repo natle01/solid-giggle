@@ -24,7 +24,7 @@ export type TimelineProps = {
   items: TimelineItem[];
 };
 
-const TimelineEntry = (props: TimelineItem): JSX.Element => {
+const TimelineEntry = (props: TimelineItem): React.ReactElement => {
   const contentRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(contentRef, {
     threshold: 0.25,
@@ -59,9 +59,9 @@ const TimelineEntry = (props: TimelineItem): JSX.Element => {
 /**
  * Displays a vertical timeline of entries.
  * @param items Entries rendered in the timeline.
- * @returns A JSX element.
+ * @returns A React.ReactElement  element.
  */
-const Timeline = ({ items }: TimelineProps): JSX.Element => (
+const Timeline = ({ items }: TimelineProps): React.ReactElement => (
   <div className={styles.timeline}>
     {items.map((item, index) => (
       <TimelineEntry key={index} index={index} {...item} />

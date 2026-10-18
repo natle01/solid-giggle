@@ -7,7 +7,7 @@ import { useEffect, useState, type RefObject } from 'react';
  * @returns A boolean indicating whether the element is in view.
  */
 export const useInView = (
-  ref: RefObject<Element> | null | undefined,
+  ref: RefObject<Element | null>,
   options: IntersectionObserverInit = {}
 ): boolean => {
   const [isInView, setIsInView] = useState(false);
