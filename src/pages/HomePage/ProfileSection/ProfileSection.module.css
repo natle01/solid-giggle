@@ -7,7 +7,6 @@
   margin: 0;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 0.75rem;
 }
 
 .name {
@@ -17,10 +16,20 @@
 }
 
 .flagRow {
+  width: 100%;
   display: flex;
+  justify-content: center;
   gap: 0.4rem;
   margin-bottom: 1.5rem;
-  font-size: 1.2rem;
+}
+
+.flagRow img {
+  max-height: 2.5rem;
+  align-self: center;
+}
+
+.flagRow img:first-child {
+  max-height: 2.8rem;
 }
 
 .placeholderImage {
@@ -55,7 +64,7 @@
   letter-spacing: 0.02em;
 }
 
-.hashTag + .hashTag::before {
+.hashTag+.hashTag::before {
   content: '•';
   margin-right: 0.4rem;
 }

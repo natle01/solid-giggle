@@ -20,6 +20,7 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   background: radial-gradient(circle at top, #162238 0%, var(--bg) 65%);
   color: var(--text);

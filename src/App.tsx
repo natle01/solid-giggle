@@ -8,6 +8,12 @@ import { isTabletMode, mergeClasses } from './utils/utilities';
 
 import styles from './App.module.css';
 
+import Fern from './icons/new-zealand-fern.svg'
+import Kangaroo from './icons/australia-kangaroo.svg'
+import MapleLeaf from './icons/canada-maple-leaf.svg'
+import Moose from './icons/canada-moose.svg'
+import Kiwi from './icons/new-zealand-kiwi.svg'
+
 const ROUTES: RouteProps[] = [
   { path: '/', children: 'Home', element: <HomePage /> },
   { path: '/Projects', children: 'Projects', element: <Projects /> },
@@ -35,6 +41,16 @@ const Navigation = (props: { onClick?: () => void }): React.ReactElement => (
   </nav>
 );
 
+const Background = () => (
+  <div className={styles.background}>
+    <img src={Fern} className={styles.fern} />
+    <img src={Kiwi} className={styles.kiwi} />
+    <img src={Kangaroo} className={styles.kangaroo} />
+    <img src={Moose} className={styles.moose} />
+    <img src={MapleLeaf} className={styles.mapleLeaf} />
+  </div >
+);
+
 /**
  * The main application component that sets up routing and navigation.
  * @returns A React.ReactElement  element.
@@ -47,6 +63,7 @@ const App = (): React.ReactElement => {
 
   return (
     <div className={styles.app}>
+      <Background />
       <header className={styles.banner}>
         <h1 className={styles.logo}>Welcome</h1>
         {isTabletMode ? (

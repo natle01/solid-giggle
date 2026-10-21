@@ -4,6 +4,54 @@
   height: 100vh;
 }
 
+.background {
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+
+.fern {
+  position: absolute;
+  height: 70%;
+  bottom: -100px;
+  left: -180px;
+  rotate: 15deg;
+}
+
+.kiwi {
+  position: absolute;
+  height: 5%;
+  bottom: 0;
+  left: 39%
+}
+
+.kangaroo {
+  position: absolute;
+  height: 8%;
+  bottom: -10px;
+  left: 46%;
+  rotate: -10deg;
+}
+
+.moose {
+  position: absolute;
+  height: 10%;
+  bottom: 0;
+  left: 55%;
+  transform: scaleX(-1);
+}
+
+.mapleLeaf {
+  position: absolute;
+  height: 50%;
+  bottom: -80px;
+  right: -80px;
+  rotate: -30deg;
+}
+
 .banner {
   display: flex;
   /* For menu flyout positioning */
@@ -93,7 +141,22 @@ main>* {
 }
 
 main>*:has([class*="fullWidth"]) {
-  width: 70%;
+  width: 90%;
   min-width: inherit;
   max-width: 2000px;
+}
+
+@media (max-width: 1023px) {
+
+  .kiwi,
+  .kangaroo,
+  .moose {
+    display: none;
+  }
+}
+
+@media (max-width: 799px) {
+  .fern {
+    display: none;
+  }
 }
