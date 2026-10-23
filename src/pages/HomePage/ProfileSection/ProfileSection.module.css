@@ -26,6 +26,7 @@
 .flagRow img {
   max-height: 2.5rem;
   align-self: center;
+  filter: saturate(0.8);
 }
 
 .flagRow img:first-child {

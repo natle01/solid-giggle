@@ -44,7 +44,7 @@ const ProfileSection = (): React.ReactElement => {
     <Section className={styles.profile}>
       <p className={styles.jobTitle}>User Experience Engineer</p>
       <h2 className={styles.name}>Natalie Wainwright</h2>
-      <div className={styles.flagRow} aria-label='Work rights countries'>
+      <div className={styles.flagRow} aria-label='Work rights in Canada, Australia, New Zealand'>
         <img src={CanadaLogo} title='Canada' />
         <img src={AustraliaLogo} title='Australia' />
         <img src={NewZealandLogo} title='New Zealand' />

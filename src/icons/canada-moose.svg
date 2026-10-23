@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 <svg fill="currentColor" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
-	   <style>
-    :root { color: #fff; opacity: 0.03 }
+	<style>
+    :root { color: #fff; }
   </style>
-<g>
 	<g>
 		<path d="M488.138,128.587c-3.908-1.069-8.096-2.164-12.417-3.294c-15.086-3.943-38.609-10.094-49.147-16.3
 			c12.05-1.298,31.137-5.573,47.068-19.174c3.483-2.973,3.896-8.208,0.923-11.69s-8.209-3.898-11.69-0.923
@@ -53,5 +52,4 @@
 			c11.619,6.236,29.354,11.208,51.165,16.909c4.258,1.113,8.384,2.19,12.233,3.245c8.608,2.354,11.405,20.559,11.634,31.759
 			L477.104,188.538z"/>
 	</g>
-</g>
 </svg>
