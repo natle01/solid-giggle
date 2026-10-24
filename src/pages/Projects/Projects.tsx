@@ -4,7 +4,7 @@ import { Carousel, CarouselProps, Link } from '@natle01/laughing-kookaburra';
 import { CodeProject } from '../../icons/icons';
 import { mergeClasses } from '../../utils/utilities';
 import { Pill } from '../../components/Pill/Pill';
-import { Section, SectionHeader } from '../../components/Section/Section';
+import { Container, ContainerHeader } from '../../components/Container/Container';
 import { projectDetails as designSystemProject } from './DesignSystem/Project';
 // import { projectDetails as motionGraphicsProject } from './MotionGraphics/Project';
 // import { projectDetails as recipeGeneratorProject } from './RecipeGenerator/Project';
@@ -115,14 +115,14 @@ const Project = ({ details }: { details: ProjectDetails; }): React.ReactElement 
 const Projects = () => {
   return (
     <section className={mergeClasses(styles.projectsPage, 'fullWidth')}>
-      <Section appearance='transparent' className={styles.projectsHeader}>
+      <Container appearance='transparent' className={styles.projectsHeader}>
         <div className={styles.caption}>A few things I've been making</div>
-        <SectionHeader ariaLevel={2} className={styles.projectsHeading}>Projects</SectionHeader>
-        <div className={styles.subText}>
+        <ContainerHeader ariaLevel={2} className={styles.projectsHeading}>Projects</ContainerHeader>
+        <div>
           Work and personal projects. Everything built with thoughtful details and passion.
         </div>
         <CodeProject className={styles.projectCount} />
-      </Section>
+      </Container>
       {PROJECTS.map((project) => (
         <Project key={project.title} details={project} />
       ))}

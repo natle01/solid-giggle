@@ -1,28 +1,28 @@
 import type { ComponentPropsWithoutRef } from 'react';
 
 import { mergeClasses } from '../../utils/utilities';
-import styles from './Section.module.css';
+import styles from './Container.module.css';
 
 /**
- * Props for the Section component.
+ * Props for the Container component.
  */
-export type SectionProps = ComponentPropsWithoutRef<'div'> & {
+export type ContainerProps = ComponentPropsWithoutRef<'div'> & {
   appearance?: 'default' | 'transparent' | 'darker';
 };
 
 /**
- * A shared section wrapper.
+ * A shared container wrapper.
  * @returns A React.ReactElement  element.
  */
-export const Section = ({
+export const Container = ({
   appearance = 'default',
   className,
   ...rest
-}: SectionProps): React.ReactElement => (
+}: ContainerProps): React.ReactElement => (
   <div
     className={mergeClasses(
-      styles.section,
-      styles[`section--${appearance}`],
+      styles.container,
+      styles[`container--${appearance}`],
       className
     )}
     {...rest}
@@ -30,24 +30,24 @@ export const Section = ({
 );
 
 /**
- * Props for the SectionHeading component.
+ * Props for the ContainerHeading component.
  */
-export type SectionHeadingProps = ComponentPropsWithoutRef<'div'> & {
+export type ContainerHeadingProps = ComponentPropsWithoutRef<'div'> & {
   ariaLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 };
 
 /**
- * A shared heading for sections.
+ * A shared heading for containers.
  * @param ariaLevel Heading level exposed via aria-level (default 3).
  * @returns A React.ReactElement  element.
  */
-export const SectionHeader = ({
+export const ContainerHeader = ({
   ariaLevel = 3,
   className,
   ...rest
-}: SectionHeadingProps): React.ReactElement => (
+}: ContainerHeadingProps): React.ReactElement => (
   <div
-    className={mergeClasses(styles.sectionHeading, className)}
+    className={mergeClasses(styles.containerHeading, className)}
     role='heading'
     aria-level={ariaLevel}
     {...rest}

@@ -13,7 +13,7 @@ import {
 import HomePage from './pages/HomePage/HomePage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import Projects from './pages/Projects/Projects';
-import { isTabletMode, mergeClasses } from './utils/utilities';
+import { isTabletMode, mergeClasses, prefersDarkMode } from './utils/utilities';
 
 import styles from './App.module.css';
 
@@ -24,7 +24,7 @@ import Moose from './icons/canada-moose.svg'
 import Kiwi from './icons/new-zealand-kiwi.svg'
 
 // The alternative color scheme to swap to.
-const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'light' : 'dark';
+const colorScheme = prefersDarkMode ? 'light' : 'dark';
 
 const ROUTES: RouteProps[] = [
   { path: '/', children: 'Home', element: <HomePage /> },

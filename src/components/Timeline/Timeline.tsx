@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import { useInView } from '../../utils/useInView';
 import { mergeClasses } from '../../utils/utilities';
@@ -27,8 +28,7 @@ export type TimelineProps = {
 const TimelineEntry = (props: TimelineItem): React.ReactElement => {
   const contentRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(contentRef, {
-    threshold: 0.25,
-    rootMargin: '0px 0px -10% 0px'
+    rootMargin: '0px 0px -15% 0px'
   });
 
   return (
@@ -38,10 +38,7 @@ const TimelineEntry = (props: TimelineItem): React.ReactElement => {
         <span>{props.location}</span>
       </div>
       <div
-        className={mergeClasses(
-          styles.marker,
-          props.index === 0 && styles.markerFirst
-        )}
+        className={mergeClasses(styles.marker, props.index === 0 && styles.markerFirst)}
         aria-hidden='true'
       />
       <div
@@ -50,7 +47,7 @@ const TimelineEntry = (props: TimelineItem): React.ReactElement => {
       >
         <h4 className={styles.company}>{props.company}</h4>
         <p className={styles.title}>{props.role}</p>
-        <p>{props.description}</p>
+        <ReactMarkdown>{props.description}</ReactMarkdown>
       </div>
     </>
   );

@@ -7,7 +7,7 @@ import {
   CardImage
 } from '../../../components/Card/Card';
 import { Pill } from '../../../components/Pill/Pill';
-import { Section, SectionHeader } from '../../../components/Section/Section';
+import { Container, ContainerHeader } from '../../../components/Container/Container';
 import { type ProjectDetails, PROJECTS, techStack } from '../../Projects/Projects';
 
 import styles from './ProjectsSection.module.css';
@@ -48,16 +48,16 @@ const ProjectCard = (props: ProjectDetails): React.ReactElement => {
  * @returns A React.ReactElement.
  */
 const ProjectsSection = (): React.ReactElement => (
-  <Section appearance='transparent'>
-    <SectionHeader className={styles.projectHeading}>
+  <Container appearance='transparent'>
+    <ContainerHeader className={styles.projectHeading}>
       Projects 🛠️ <Link to='/Projects'>View all</Link>
-    </SectionHeader>
+    </ContainerHeader>
     <div className={styles.projectCards}>
       {PROJECTS.slice(0, 3).map((project) => (
         <ProjectCard key={project.title} {...project} />
       ))}
     </div>
-  </Section>
+  </Container>
 );
 
 export default ProjectsSection;
