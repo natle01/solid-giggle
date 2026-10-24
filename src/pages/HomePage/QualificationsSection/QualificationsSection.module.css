@@ -18,30 +18,20 @@
 }
 
 .period {
-  color: var(--text-muted);
   font-size: 0.8rem;
 }
 
 .symbol {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 1;
-  background: rgba(117, 167, 255, 0.1);
-  border: 1px solid var(--border-bright);
-  border-radius: 50%;
-  color: var(--primary);
-  font-size: 3rem;
+  width: 60px;
 }
 
 .degree {
   margin: 0;
+  color: var(--text);
 }
 
 .school {
   margin: 0;
-  color: var(--text-muted);
   font-size: 0.9rem;
 }
 

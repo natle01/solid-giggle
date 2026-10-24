@@ -10,6 +10,7 @@
 }
 
 .name {
+  color: var(--text);
   margin: 0rem;
   font-size: 2.6rem;
   text-align: center;
@@ -33,15 +34,9 @@
   max-height: 2.8rem;
 }
 
-.placeholderImage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 160px;
-  max-height: 220px;
-  background: black;
-  border-radius: 12px;
-  border: 1px solid var(--border);
+.webImage {
+  border-radius: 10px;
+  width: 100%;
 }
 
 .details {
@@ -49,6 +44,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-top: 2rem;
+  text-align: justify;
 }
 
 .tagContainer {
@@ -60,7 +56,6 @@
 }
 
 .hashTag {
-  color: var(--text-muted);
   font-size: 0.78rem;
   letter-spacing: 0.02em;
 }

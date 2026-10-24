@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, type CSSProperties } from 'react';
 import { Pill } from '../../../components/Pill/Pill';
-import { Section, SectionHeader } from '../../../components/Section/Section';
+import { Container, ContainerHeader } from '../../../components/Container/Container';
 import { Sparkle } from '../../../components/Sparkle/Sparkle';
 import { useInView } from '../../../utils/useInView';
 import { hasHoverSupport, mergeClasses } from '../../../utils/utilities';
@@ -70,8 +70,8 @@ const TechStackSection = (): React.ReactElement => {
   });
 
   return (
-    <Section appearance='transparent' className={styles.techStack}>
-      <SectionHeader>Tech Stack 👾</SectionHeader>
+    <Container appearance='transparent' className={styles.techStack}>
+      <ContainerHeader>Tech Stack 👾</ContainerHeader>
       <div ref={pillContainerRef} className={styles.pillContainer}>
         {Object.values(techStack).map((item, index) => (
           <TechStackPill
@@ -83,7 +83,7 @@ const TechStackSection = (): React.ReactElement => {
           />
         ))}
       </div>
-    </Section>
+    </Container>
   );
 };
 

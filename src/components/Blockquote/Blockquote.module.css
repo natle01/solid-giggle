@@ -6,12 +6,9 @@
   border-radius: 0 12px;
   border: 1px solid var(--border);
   border-top: 4px solid var(--primary);
-  background: linear-gradient(
-    135deg,
-    rgba(117, 167, 255, 0.08),
-    rgba(20, 27, 40, 0.65)
-  );
-  color: var(--text-muted);
+  background: linear-gradient(135deg,
+      rgba(117, 167, 255, 0.08),
+      rgba(20, 27, 40, 0.65));
   font-style: italic;
   text-align: center;
 }
@@ -21,11 +18,9 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    115deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.11) 50%,
-    transparent 65%
-  );
+  background: linear-gradient(115deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.11) 50%,
+      transparent 65%);
   opacity: 0;
 }

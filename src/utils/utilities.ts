@@ -6,11 +6,14 @@ export const mergeClasses = (
 ): string => classes.filter(Boolean).join(' ');
 
 /**
+ * Whether the user prefers dark mode when the module loads.
+ */
+export const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+/**
  * Whether the user prefers reduced motion when the module loads.
  */
-export const prefersReducedMotion = window.matchMedia(
-  '(prefers-reduced-motion: reduce)'
-).matches;
+export const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /**
  * Whether the viewport is tablet-sized or smaller when the module loads.

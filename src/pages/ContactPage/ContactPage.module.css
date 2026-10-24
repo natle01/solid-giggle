@@ -3,12 +3,10 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.74rem;
-  color: var(--text-muted);
 }
 
 .contactHeading {
   font-size: 3rem;
-  color: var(--text);
   letter-spacing: 0;
 }
 

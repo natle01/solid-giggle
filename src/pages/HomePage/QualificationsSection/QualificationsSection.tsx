@@ -1,5 +1,7 @@
-import { Section, SectionHeader } from '../../../components/Section/Section';
+import { Container, ContainerHeader } from '../../../components/Container/Container';
 import styles from './QualificationsSection.module.css';
+
+import QUTLogo from './qut-logo.jpg';
 
 type Experience = {
   degree: string;
@@ -11,7 +13,7 @@ type Experience = {
 const QUALIFICATIONS: Experience[] = [
   {
     degree: 'Bachelor: Games and Interactive Entertainment (Animation)',
-    school: 'Queensland University of Technology (QUT), Australia, QLD',
+    school: 'Queensland University of Technology, Australia',
     period: 'Graduated 2013',
     description:
       'Completed formal training in interactive media and animation, with a foundation in creative and technical production workflows.'
@@ -23,14 +25,12 @@ const QUALIFICATIONS: Experience[] = [
  * @returns A React.ReactElement  element.
  */
 const QualificationsSection = (): React.ReactElement => (
-  <Section appearance='transparent'>
-    <SectionHeader>Qualifications</SectionHeader>
+  <Container appearance='transparent'>
+    <ContainerHeader>Qualifications 🎓</ContainerHeader>
     {QUALIFICATIONS.map(({ degree, school, period, description }) => (
       <article className={styles.entry} key={school}>
         <div className={styles.meta}>
-          <div className={styles.symbol} aria-hidden='true'>
-            🎓
-          </div>
+          <img src={QUTLogo} className={styles.symbol} alt='' />
           <span className={styles.period}>{period}</span>
         </div>
         <div className={styles.content}>
@@ -40,7 +40,7 @@ const QualificationsSection = (): React.ReactElement => (
         </div>
       </article>
     ))}
-  </Section>
+  </Container>
 );
 
 export default QualificationsSection;

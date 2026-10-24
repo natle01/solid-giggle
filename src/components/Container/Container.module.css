@@ -1,6 +1,5 @@
-/* layer lets any consumer className override without higher specificity */
-@layer section-component {
-  .section {
+@layer container-component {
+  .container {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
@@ -9,24 +8,24 @@
     border-radius: 14px;
   }
 
-  .section--default {
+  .container--default {
     background: var(--bg-elevated);
   }
 
-  .section--darker {
+  .container--darker {
     background: var(--bg);
   }
 
-  .section--transparent {
+  .container--transparent {
     background: transparent;
     border: none;
   }
 
-  .sectionHeading {
+  .containerHeading {
     margin: 0 0 0.35rem;
     font-size: 0.95rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--text);
   }
 }
