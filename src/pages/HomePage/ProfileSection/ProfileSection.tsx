@@ -2,6 +2,10 @@ import { Blockquote } from '../../../components/Blockquote/Blockquote';
 import { Section } from '../../../components/Section/Section';
 import styles from './ProfileSection.module.css';
 
+import AustraliaLogo from '../../../icons/australia-flag.svg';
+import CanadaLogo from '../../../icons/canada-flag.svg';
+import NewZealandLogo from '../../../icons/new-zealand-flag.svg';
+
 const TAGS: string[] = [
   'UX',
   'mentor',
@@ -40,18 +44,10 @@ const ProfileSection = (): React.ReactElement => {
     <Section className={styles.profile}>
       <p className={styles.jobTitle}>User Experience Engineer</p>
       <h2 className={styles.name}>Natalie Wainwright</h2>
-      <div className={styles.flagRow} aria-label='Work rights countries'>
-        <span
-          className='fi fi-au'
-          aria-label='Australian flag'
-          title='Australia'
-        />
-        <span
-          className='fi fi-nz'
-          aria-label='New Zealand flag'
-          title='New Zealand'
-        />
-        <span className='fi fi-ca' aria-label='Canadian flag' title='Canada' />
+      <div className={styles.flagRow} aria-label='Work rights in Canada, Australia, New Zealand'>
+        <img src={CanadaLogo} title='Canada' />
+        <img src={AustraliaLogo} title='Australia' />
+        <img src={NewZealandLogo} title='New Zealand' />
       </div>
       <div className={styles.tagContainer}>
         {TAGS.map((tag) => (
