@@ -16,6 +16,7 @@ const ProjectCard = (props: ProjectDetails): React.ReactElement => {
   const linkRef = React.useRef<HTMLAnchorElement>(null);
   const handleClick = (): void => linkRef.current?.click();
   const src = props.items.find(item => !item.isVideo)?.src as string | undefined;
+  const ariaLabel = `${props.tech.map(item => item).join(', ')}`;
 
   return (
     <Card onClick={handleClick}>
@@ -33,9 +34,16 @@ const ProjectCard = (props: ProjectDetails): React.ReactElement => {
           </a>
         </CardHeader>
         <p>{props.blurb}</p>
-        <div className={styles.cardPills}>
+        <div className={styles.cardPills} aria-label={ariaLabel}>
           {props.tech.map((item) => (
-            <Pill key={item} {...techStack[item]} compact />
+            <Pill
+              key={item}
+              aria-hidden
+              variant='transparent'
+              className={styles.cardPill}
+              title={techStack[item].label}
+              {...techStack[item]}
+            />
           ))}
         </div>
       </CardBody>

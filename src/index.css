@@ -1,41 +1,24 @@
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
 
   /* Animation */
   --animation-delay: 0ms;
 
   /* Colors */
-  --bg: #0c111b;
-  --bg-elevated: #141b28;
-  --bg-soft: #1b2535;
-  --border: #2a3a52;
-  --border-bright: #4a6385;
-  --link: #75a7ff;
-  --text: #e8eef7;
-  --text-muted: #afbccf;
-  --primary: #75a7ff;
-  --primary-strong: #5d93f3;
-  --primary-ink: #0b1f44;
+  --text-bright: light-dark(#000, #fff);
 }
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #162238 0%, var(--bg) 65%);
-  color: var(--text-muted);
   min-height: 100vh;
   height: 100%;
 }
 
 strong {
-  color: var(--text);
-}
-
-a {
-  color: var(--link);
+  color: var(--text-bright);
 }
 
 a:hover {
-  color: var(--primary-strong);
+  color: var(--global-color-accent-strong);
   text-decoration: none;
 }

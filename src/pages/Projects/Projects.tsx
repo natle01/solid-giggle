@@ -1,5 +1,20 @@
+import { ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Carousel, CarouselProps, Link } from '@natle01/laughing-kookaburra';
+import {
+  AngularIcon,
+  Carousel,
+  CarouselProps,
+  GitHubIcon,
+  Html5Icon,
+  JavaScriptIcon,
+  Link,
+  NodeJSIcon,
+  NpmIcon,
+  ReactIcon,
+  SassIcon,
+  StorybookIcon,
+  TypeScriptIcon
+} from '@natle01/laughing-kookaburra';
 
 import { CodeProject } from '../../icons/icons';
 import { mergeClasses } from '../../utils/utilities';
@@ -30,8 +45,9 @@ export type Technology = keyof typeof techStack;
  * Technology stack item.
  */
 export type TechnologyItem = {
-  label: string;
-  icon: string;
+  label?: string;
+  icon?: string;
+  children?: ReactNode;
 };
 
 /**
@@ -53,24 +69,24 @@ export type ProjectDetails = Pick<CarouselProps, 'items'> & {
  */
 export const techStack: Record<string, TechnologyItem> = {
   azureDevOps: { label: 'Azure DevOps', icon: '☁️' },
-  azure: { label: 'Azure/Jira', icon: '☁️' },
-  typescript: { label: 'TypeScript', icon: '🧩' },
-  javascript: { label: 'JavaScript', icon: '✨' },
-  html: { label: 'HTML', icon: '🌐' },
+  typescript: { label: 'TypeScript', children: <TypeScriptIcon /> },
+  javascript: { label: 'JavaScript', children: <JavaScriptIcon /> },
+  html: { label: 'HTML5', children: <Html5Icon /> },
   css: { label: 'CSS', icon: '🌈' },
   'c#': { label: 'C#', icon: '🧩' },
-  sass: { label: 'SASS', icon: '🌈' },
-  react: { label: 'React', icon: '⚛️' },
-  angular: { label: 'Angular', icon: '🅰️' },
-  nodejs: { label: 'Node.js', icon: '🟢' },
+  sass: { label: 'SASS', children: <SassIcon style={{ color: '#CF649A' }} /> },
+  react: { label: 'React', children: <ReactIcon /> },
+  angular: { label: 'Angular', children: <AngularIcon /> },
+  nodejs: { label: 'NodeJS', children: <NodeJSIcon /> },
   jest: { label: 'Jest', icon: '🧪' },
   mocha: { label: 'Mocha/Chai', icon: '🧪' },
   selenium: { label: 'Selenium WebDriver', icon: '🧪' },
-  sql: { label: 'SQL', icon: '🧩' },
-  git: { label: 'Git', icon: '☁️' },
-  figma: { label: 'Figma', icon: '🎨' },
+  sql: { label: 'SQL', icon: '👾' },
+  git: { label: 'Git', children: <GitHubIcon /> },
+  figma: { label: 'Figma', icon: '👨‍🎨' },
   fluent: { label: 'Fluent', icon: '🎨' },
-  storybook: { label: 'Storybook', icon: '📚' },
+  storybook: { label: 'Storybook', children: <StorybookIcon /> },
+  npm: { label: 'npm', children: <NpmIcon /> },
   webAPIAnimations: { label: 'Web API animations', icon: '🌐' },
 };
 
@@ -78,7 +94,7 @@ const Project = ({ details }: { details: ProjectDetails; }): React.ReactElement 
   <article className={styles.project}>
     <Carousel
       items={details.items}
-      variant='quiet'
+      variant='float'
       objectFit='contain'
       className={styles.carousel}
     />
@@ -86,14 +102,14 @@ const Project = ({ details }: { details: ProjectDetails; }): React.ReactElement 
       <div className={styles.projectHeader}>
         {details.logo && <img src={details.logo} alt='' />}
         <span className={styles.projectTitle}>{details.title}</span>
-        {details.isNDA && <Pill label='🔐 Under NDA' compact className={styles.ndaNotice} title='Code under non-disclosure' />}
+        {details.isNDA && <Pill className={styles.ndaNotice} title='Code under non-disclosure'>🔐 Under NDA</Pill>}
       </div>
       {details.blurb && <span>{details.blurb}</span>}
       My responsibilities:
       <ReactMarkdown children={details.description} />
       <div className={styles.projectTech}>
         {details.tech.map((technology) => (
-          <Pill key={technology} {...techStack[technology]} compact />
+          <Pill key={technology} {...techStack[technology]} />
         ))}
       </div>
       <Link

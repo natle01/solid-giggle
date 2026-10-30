@@ -7,7 +7,7 @@ import styles from './Container.module.css';
  * Props for the Container component.
  */
 export type ContainerProps = ComponentPropsWithoutRef<'div'> & {
-  appearance?: 'default' | 'transparent' | 'darker';
+  appearance?: 'default' | 'transparent';
 };
 
 /**

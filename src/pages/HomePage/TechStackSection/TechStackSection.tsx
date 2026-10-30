@@ -18,7 +18,7 @@ const TechStackPill = (
     supportsHover: boolean;
   }
 ): React.ReactElement => {
-  const { index, isContainerInView, supportsHover, ...item } = props;
+  const { index, isContainerInView, supportsHover, children, ...item } = props;
   const animationDelay = index * ANIMATION_DELAY;
   const sparkleAnimation = useRef<Animation | null>(null);
 
@@ -41,14 +41,14 @@ const TechStackPill = (
 
   return (
     <Pill
-      className={mergeClasses(
-        styles.techStackPill,
-        isContainerInView && styles.inView
-      )}
+      variant='transparent'
+      className={mergeClasses(styles.techStackPill, isContainerInView && styles.inView)}
       style={{ '--animation-delay': `${animationDelay}ms` } as CSSProperties}
       onMouseEnter={supportsHover ? handleMouseEnter : undefined}
+      title={item.label}
       {...item}
     >
+      {children}
       <Sparkle
         options={{ fade: true }}
         onAnimationReady={handleAnimationReady}
@@ -68,14 +68,16 @@ const TechStackSection = (): React.ReactElement => {
     threshold: 0.3,
     rootMargin: '0px 0px -20% 0px'
   });
+  const ariaLabel = `${Object.values(techStack).map(item => item.label).join(', ')}`;
 
   return (
     <Container appearance='transparent' className={styles.techStack}>
       <ContainerHeader>Tech Stack 👾</ContainerHeader>
-      <div ref={pillContainerRef} className={styles.pillContainer}>
+      <div ref={pillContainerRef} className={styles.pillContainer} aria-label={ariaLabel}>
         {Object.values(techStack).map((item, index) => (
           <TechStackPill
             key={item.label}
+            aria-hidden
             index={index}
             isContainerInView={isPillContainerInView}
             supportsHover={supportsHover}

@@ -3,25 +3,20 @@ import { NavLink, Route, RouteProps, Routes } from 'react-router-dom';
 import {
   Button,
   ToggleButton,
-  // MenuIcon,
-  // MoonFillIcon,
-  // MoonOutlineIcon,
-  // SunFillIcon,
-  // SunOutlineIcon
+  MenuIcon,
+  MoonFillIcon,
+  MoonOutlineIcon,
+  SunFillIcon,
+  SunOutlineIcon
 } from '@natle01/laughing-kookaburra';
 
 import HomePage from './pages/HomePage/HomePage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import Projects from './pages/Projects/Projects';
 import { isTabletMode, mergeClasses, prefersDarkMode } from './utils/utilities';
+import { FernIcon, KangarooIcon, KiwiIcon, MapleLeafIcon, MooseIcon } from './icons/icons';
 
 import styles from './App.module.css';
-
-import Fern from './icons/new-zealand-fern.svg'
-import Kangaroo from './icons/australia-kangaroo.svg'
-import MapleLeaf from './icons/canada-maple-leaf.svg'
-import Moose from './icons/canada-moose.svg'
-import Kiwi from './icons/new-zealand-kiwi.svg'
 
 // The alternative color scheme to swap to.
 const colorScheme = prefersDarkMode ? 'light' : 'dark';
@@ -37,10 +32,8 @@ const LINKS = ROUTES.map(({ path, ...route }) => ({
   ...route
 }));
 
-// const DarkIcon = ({ filled }: { filled?: boolean; }) => filled ? <MoonFillIcon /> : <MoonOutlineIcon />;
-// const SunIcon = ({ filled }: { filled?: boolean; }) => filled ? <SunFillIcon /> : <SunOutlineIcon />;
-const DarkIcon = ({ }: { filled?: boolean; }) => '🌒';
-const SunIcon = ({ }: { filled?: boolean; }) => '☀️';
+const DarkIcon = ({ filled }: { filled?: boolean; }) => filled ? <MoonFillIcon /> : <MoonOutlineIcon />;
+const SunIcon = ({ filled }: { filled?: boolean; }) => filled ? <SunFillIcon /> : <SunOutlineIcon />;
 
 const Background = (props: React.ComponentProps<'div'>) => (
   <div aria-hidden {...props} className={mergeClasses(styles.background, props.className)} />
@@ -112,7 +105,7 @@ const MenuButton = () => {
         aria-label='Navigation menu'
         onClick={handleClick}
       >
-        🟰{/* <MenuIcon /> */}
+        <MenuIcon />
       </Button>
       <div id='nav-flyout' data-open={isOpen} className={styles.flyoutMenu} >
         <Navigation setIsOpen={setIsOpen} />
@@ -127,18 +120,21 @@ const MenuButton = () => {
 */
 const App = (): React.ReactElement => {
   const [swapMode, setSwapMode] = useState(false);
+  useEffect(() => {
+    document.body.style.colorScheme = swapMode ? colorScheme : '';
+  }, [swapMode])
 
   return (
-    <div className={styles.app} style={{ colorScheme: swapMode ? colorScheme : 'normal' }}>
+    <div className={styles.app}>
       <Background className={styles.appBackground}>
-        <img src={Fern} className={styles.fern} />
-        <img src={MapleLeaf} className={styles.mapleLeaf} />
+        <FernIcon className={styles.fern} />
+        <MapleLeafIcon className={styles.mapleLeaf} />
       </Background>
       <header className={styles.banner}>
         <Background className={styles.headerBackground}>
-          <img src={Kiwi} className={styles.kiwi} />
-          <img src={Kangaroo} className={styles.kangaroo} />
-          <img src={Moose} className={styles.moose} />
+          <KiwiIcon className={styles.kiwi} />
+          <KangarooIcon className={styles.kangaroo} />
+          <MooseIcon className={styles.moose} />
         </Background>
         <h1 className={styles.logo}>Welcome</h1>
         {!isTabletMode ?

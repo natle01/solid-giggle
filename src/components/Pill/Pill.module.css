@@ -1,8 +1,8 @@
 /* layer lets any consumer className override without higher specificity */
 @layer pill-component {
   .pill {
-    border: 1px solid var(--border);
-    background: var(--bg-soft);
+    border: 1px solid var(--global-color-border);
+    background: var(--global-color-surface);
     border-radius: 999px;
     padding: 0.45rem 0.85rem;
     font-size: 0.9rem;
@@ -12,15 +12,15 @@
     gap: 0.4rem;
   }
 
-  .pillIcon {
-    font-size: 0.95em;
-    line-height: 1;
-  }
-
   .compact {
-    background: var(--bg-elevated);
+    background: var(--global-color-surface);
     padding: 0.3rem 0.65rem;
     font-size: 0.8rem;
     font-weight: 600;
+  }
+
+  .transparent {
+    background: transparent;
+    border-color: transparent;
   }
 }

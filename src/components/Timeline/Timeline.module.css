@@ -26,7 +26,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-left: 1px solid var(--border);
+    border-left: 1px solid var(--global-color-border);
   }
 
   .marker::after {
@@ -38,7 +38,7 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: var(--border-bright);
+    background: var(--global-color-border-strong);
   }
 
   .markerFirst::after {
@@ -62,7 +62,7 @@
   .company {
     margin: 0;
     font-size: 1rem;
-    color: var(--text);
+    color: var(--text-bright);
   }
 
   .title {

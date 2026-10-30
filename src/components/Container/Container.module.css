@@ -4,16 +4,12 @@
     flex-direction: column;
     gap: 0.6rem;
     padding: 1rem;
-    border: 1px solid var(--border);
+    border: 1px solid var(--global-color-border);
     border-radius: 14px;
   }
 
   .container--default {
-    background: var(--bg-elevated);
-  }
-
-  .container--darker {
-    background: var(--bg);
+    background: var(--global-color-surface);
   }
 
   .container--transparent {
@@ -26,6 +22,6 @@
     font-size: 0.95rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text);
+    color: var(--text-bright);
   }
 }
