@@ -1,4 +1,4 @@
-import type { ProjectDetails } from '../Projects';
+import type { ProjectDetails } from '../examples';
 
 const blurb = 'A lightweight, high-performance animation framework built to create beautiful web motions that elevate component design and overall site appearance. It seamlessly combines native performance with powerful timing controls to deliver smooth, engaging, and purposeful user experiences.';
 const description = `
@@ -9,6 +9,7 @@ const description = `
 `;
 
 export const projectDetails: ProjectDetails = {
+  ext: 'motion-graphics',
   title: 'Motion Graphics',
   url: '',
   urlLabel: '',
@@ -17,5 +18,3 @@ export const projectDetails: ProjectDetails = {
   description,
   tech: ['typescript', 'react', 'css']
 };
-
-

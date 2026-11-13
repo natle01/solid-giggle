@@ -1,0 +1,51 @@
+.projectPage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.projectHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  width: 3.5rem;
+}
+
+.projectTech {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techPill {
+  font-size: 2rem;
+}
+
+.carousel {
+  align-self: center;
+  width: 100%;
+  max-height: 500px;
+}
+
+.containerFullWidth {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: -1rem;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    width: 100vw;
+    background-color: var(--global-color-surface);
+  }
+}

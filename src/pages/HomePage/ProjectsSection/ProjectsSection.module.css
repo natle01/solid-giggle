@@ -1,8 +1,10 @@
-.projectHeading {
+.headingWrapper {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+}
+
+.projectHeading {
+  display: inline;
+  margin-right: auto;
 }
 
 .projectCards {

@@ -20,15 +20,15 @@
   font-size: 4rem;
 }
 
-.projectCount {
+.codeIcon {
   position: absolute;
   right: 5%;
   width: 5.5rem;
   height: 5.5rem;
   padding: 15px;
-  border: 1px solid rgba(107, 159, 255, 0.45);
+  border: 1px solid var(--global-color-border);
   border-radius: 50%;
-  background: rgba(107, 166, 255, 0.09);
+  background: var(--global-color-surface);
   color: var(--global-color-accent);
 }
 
@@ -89,7 +89,7 @@
   margin-bottom: 10px;
 }
 
-.projectLink {
+.externalLink {
   font-weight: 600;
   font-size: 1rem;
 }
@@ -119,7 +119,7 @@
 }
 
 @media (max-width: 700px) {
-  .projectCount {
+  .codeIcon {
     display: none;
   }
 }

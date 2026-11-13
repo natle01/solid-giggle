@@ -1,6 +1,6 @@
 import { Link, LinkedInIcon } from '@natle01/laughing-kookaburra';
 import { Pill } from '../../components/Pill/Pill';
-import { Container, ContainerHeader } from '../../components/Container/Container';
+import { Container, ContainerHeading } from '../../components/Container/Container';
 import styles from './ContactPage.module.css';
 
 const LOCATION = 'Vancouver, BC, Canada';
@@ -15,16 +15,16 @@ function ContactPage() {
         >
           📍 {LOCATION}
         </p>
-        <ContainerHeader ariaLevel={2} className={styles.contactHeading}>
+        <ContainerHeading ariaLevel={2} className={styles.contactHeading}>
           Contact
-        </ContainerHeader>
+        </ContainerHeading>
         <p className={styles.subtitle}>Let's connect</p>
         <span>Feel free to reach out and connect.</span>
       </Container>
 
       <div className={styles.infoGrid}>
         <Container>
-          <ContainerHeader ariaLevel={3}>Reach me at</ContainerHeader>
+          <ContainerHeading ariaLevel={3}>Reach me at</ContainerHeading>
           <p className={styles.contactLinkLine}>
             <LinkedInIcon style={{ fontSize: '1.3em' }} />
             <Link
@@ -38,7 +38,7 @@ function ContactPage() {
         </Container>
 
         <Container>
-          <ContainerHeader ariaLevel={3}>Availability</ContainerHeader>
+          <ContainerHeading ariaLevel={3}>Availability</ContainerHeading>
           <div className={styles.pillRow}>
             {['Open to work', 'Full-time', 'Hybrid', 'Remote'].map((label) => (
               <Pill key={label} compact>{label}</Pill>

@@ -63,7 +63,6 @@
   transform: scaleX(-1);
 }
 
-
 .banner {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -72,13 +71,22 @@
   gap: 1rem;
   padding: 1rem 1.25rem;
   background: var(--global-color-surface);
-  border-bottom: 1px solid var(--global-color-border);
+  border-bottom: 1px solid var(--global-color-border-soft);
 }
 
 .logo {
   color: var(--text-bright);
   margin: 0;
   font-size: 1.25rem;
+}
+
+.breadcrumbRow {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 1.25rem;
+  background: var(--global-color-surface);
+  border-bottom: 1px solid var(--global-color-border-soft);
 }
 
 .mobileControls {

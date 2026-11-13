@@ -1,4 +1,4 @@
-import type { ProjectDetails } from '../Projects';
+import { ProjectDetails } from '../examples';
 
 import logo from './vivaAmplify-logo.webp';
 import overviewVideo from './vivaAmplify-overview.mp4';
@@ -21,6 +21,7 @@ const description = `
 `;
 
 export const projectDetails: ProjectDetails = {
+  ext: 'viva-amplify',
   title: 'Microsoft Viva Amplify',
   isNDA: true,
   url: 'https://www.microsoft.com/en-ca/microsoft-viva/amplify',
@@ -44,7 +45,5 @@ export const projectDetails: ProjectDetails = {
   logo,
   blurb,
   description,
-  tech: ['typescript', 'c#', 'sql', 'react', 'fluent', 'figma', 'azureDevOps']
+  tech: ['typescript', 'c#', 'react', 'fluent', 'figma', 'azureDevOps']
 };
-
-

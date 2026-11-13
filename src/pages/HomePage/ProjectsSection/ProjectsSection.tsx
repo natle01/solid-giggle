@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { generatePath, Link as RouterLink } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -7,8 +7,10 @@ import {
   CardImage
 } from '../../../components/Card/Card';
 import { Pill } from '../../../components/Pill/Pill';
-import { Container, ContainerHeader } from '../../../components/Container/Container';
-import { type ProjectDetails, PROJECTS, techStack } from '../../Projects/Projects';
+import { Container, ContainerHeading } from '../../../components/Container/Container';
+import { PAGES } from '../../../routes';
+import { type ProjectDetails, PROJECTS } from '../../examples/examples';
+import { techStack } from '../TechStackSection/TechStackSection';
 
 import styles from './ProjectsSection.module.css';
 
@@ -23,15 +25,13 @@ const ProjectCard = (props: ProjectDetails): React.ReactElement => {
       <CardImage src={src} alt={props.title} />
       <CardBody>
         <CardHeader ariaLevel={4}>
-          <a
+          <RouterLink
             ref={linkRef}
-            href={props.url}
-            target='_blank'
-            rel='noreferrer'
+            to={generatePath(PAGES.project.path, { slug: props.ext })}
             onClick={(event) => event.stopPropagation()}
           >
             {props.title}
-          </a>
+          </RouterLink>
         </CardHeader>
         <p>{props.blurb}</p>
         <div className={styles.cardPills} aria-label={ariaLabel}>
@@ -56,10 +56,11 @@ const ProjectCard = (props: ProjectDetails): React.ReactElement => {
  * @returns A React.ReactElement.
  */
 const ProjectsSection = (): React.ReactElement => (
-  <Container appearance='transparent'>
-    <ContainerHeader className={styles.projectHeading}>
-      Projects 🛠️ <Link to='/Projects'>View all</Link>
-    </ContainerHeader>
+  <Container appearance='transparent' role='section'>
+    <div className={styles.headingWrapper}>
+      <ContainerHeading className={styles.projectHeading}>Projects <span aria-hidden>🛠️</span></ContainerHeading>
+      <RouterLink to={PAGES.projects.path}>View all</RouterLink>
+    </div>
     <div className={styles.projectCards}>
       {PROJECTS.slice(0, 3).map((project) => (
         <ProjectCard key={project.title} {...project} />

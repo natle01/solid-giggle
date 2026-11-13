@@ -1,4 +1,4 @@
-import type { ProjectDetails } from '../Projects';
+import type { ProjectDetails } from '../examples';
 
 import LightMode from './LaughingKookaburra-lightMode.jpg';
 import DarkMode from './LaughingKookaburra-darkMode.jpg';
@@ -15,6 +15,7 @@ const description = `
 `;
 
 export const projectDetails: ProjectDetails = {
+  ext: 'laughing-kookabura-ds',
   title: 'Laughing Kookabura Design System',
   url: 'https://laughingkookaburra.netlify.app',
   urlLabel: 'Laughing Kookabura Storybook',
@@ -27,5 +28,5 @@ export const projectDetails: ProjectDetails = {
   ],
   blurb,
   description,
-  tech: ['typescript', 'react', 'sass', 'webAPIAnimations']
+  tech: ['typescript', 'react', 'sass', 'storybook', 'vite']
 };

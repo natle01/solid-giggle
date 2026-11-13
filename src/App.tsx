@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { NavLink, Route, RouteProps, Routes } from 'react-router-dom';
+import { Link as RouterLink, NavLink, Route, Routes, useLocation, useMatch } from 'react-router-dom';
 import {
   Button,
   ToggleButton,
@@ -10,9 +10,7 @@ import {
   SunOutlineIcon
 } from '@natle01/laughing-kookaburra';
 
-import HomePage from './pages/HomePage/HomePage';
-import ContactPage from './pages/ContactPage/ContactPage';
-import Projects from './pages/Projects/Projects';
+import { PAGES, ROUTES, ROUTES_EXT } from './routes';
 import { isTabletMode, mergeClasses, prefersDarkMode } from './utils/utilities';
 import { FernIcon, KangarooIcon, KiwiIcon, MapleLeafIcon, MooseIcon } from './icons/icons';
 
@@ -21,15 +19,9 @@ import styles from './App.module.css';
 // The alternative color scheme to swap to.
 const colorScheme = prefersDarkMode ? 'light' : 'dark';
 
-const ROUTES: RouteProps[] = [
-  { path: '/', children: 'Home', element: <HomePage /> },
-  { path: '/Projects', children: 'Projects', element: <Projects /> },
-  { path: '/contact', children: 'Contact', element: <ContactPage /> }
-];
-
-const LINKS = ROUTES.map(({ path, ...route }) => ({
-  to: path as string,
-  ...route
+const LINKS = ROUTES.map(({ path, children }) => ({
+  to: path,
+  children
 }));
 
 const DarkIcon = ({ filled }: { filled?: boolean; }) => filled ? <MoonFillIcon /> : <MoonOutlineIcon />;
@@ -114,12 +106,28 @@ const MenuButton = () => {
   );
 };
 
+const Breadcrumb = () => {
+  const isSlug = useMatch('/projects/:slug');
+  if (!isSlug) return;
+
+  const projectTitle = PAGES.project.getTitle?.(isSlug.params.slug);
+  return (
+    <nav className={styles.breadcrumbRow} aria-label='Breadcrumb'>
+      <RouterLink to={PAGES.projects.path}>{PAGES.projects.children}</RouterLink>
+      <span aria-hidden='true'> / </span>
+      <span aria-current='page'>{projectTitle}</span>
+    </nav>
+  )
+}
+
 /**
  * The main application component that sets up routing and navigation.
  * @returns A React.ReactElement  element.
 */
 const App = (): React.ReactElement => {
   const [swapMode, setSwapMode] = useState(false);
+  const { pathname } = useLocation();
+
   useEffect(() => {
     document.body.style.colorScheme = swapMode ? colorScheme : '';
   }, [swapMode])
@@ -148,12 +156,13 @@ const App = (): React.ReactElement => {
           </div>
         }
       </header>
+      <Breadcrumb />
 
-      <div className={styles.pageContent}>
+      <div key={pathname} className={styles.pageContent}>
         <main>
           <Routes>
-            {ROUTES.map(({ element, ...route }) => (
-              <Route key={route.path} {...route} element={element} />
+            {[...ROUTES, ...ROUTES_EXT].map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
             ))}
           </Routes>
         </main>

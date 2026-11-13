@@ -1,4 +1,4 @@
-import { Container, ContainerHeader } from '../../../components/Container/Container';
+import { Container, ContainerHeading } from '../../../components/Container/Container';
 import Timeline, {
   type TimelineItem
 } from '../../../components/Timeline/Timeline';
@@ -47,11 +47,11 @@ const WORK_EXPERIENCE: TimelineItem[] = [
 
 /**
  * A section displaying my work experience.
- * @returns A React.ReactElement  element.
+ * @returns A React.ReactElement.
  */
 const WorkExperienceSection = (): React.ReactElement => (
-  <Container appearance='transparent'>
-    <ContainerHeader>Work Experience 🖥️</ContainerHeader>
+  <Container appearance='transparent' role='section'>
+    <ContainerHeading>Work Experience <span aria-hidden>🖥️</span></ContainerHeading>
     <Timeline items={WORK_EXPERIENCE} />
   </Container>
 );

@@ -2,7 +2,6 @@
 @layer pill-component {
   .pill {
     border: 1px solid var(--global-color-border);
-    background: var(--global-color-surface);
     border-radius: 999px;
     padding: 0.45rem 0.85rem;
     font-size: 0.9rem;
@@ -13,10 +12,13 @@
   }
 
   .compact {
-    background: var(--global-color-surface);
     padding: 0.3rem 0.65rem;
     font-size: 0.8rem;
     font-weight: 600;
+  }
+
+  .default {
+    background: var(--global-color-surface);
   }
 
   .transparent {
