@@ -16,6 +16,12 @@
   gap: 1rem;
 }
 
+.contactLinkLine {
+  display: flex;
+  gap: var(--global-space-2);
+  align-items: center;
+}
+
 .pillRow {
   display: flex;
   flex-wrap: wrap;

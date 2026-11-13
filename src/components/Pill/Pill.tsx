@@ -7,9 +7,9 @@ import styles from './Pill.module.css';
  * Props for the Pill component.
  */
 export type PillProps = ComponentPropsWithoutRef<'span'> & {
-  label: string;
   icon?: string;
   compact?: boolean;
+  variant?: 'default' | 'transparent'
 };
 
 /**
@@ -20,19 +20,18 @@ export type PillProps = ComponentPropsWithoutRef<'span'> & {
  * @returns A React.ReactElement  element.
  */
 export const Pill = ({
-  label,
   icon,
   compact = false,
+  variant,
   className,
   children,
   ...rest
 }: PillProps): React.ReactElement => (
   <span
-    className={mergeClasses(styles.pill, compact && styles.compact, className)}
+    className={mergeClasses(styles.pill, compact && styles.compact, variant && styles[variant], className)}
     {...rest}
   >
-    {icon ? <span className={styles.pillIcon}>{icon}</span> : null}
-    <span>{label}</span>
+    {icon}
     {children}
   </span>
 );

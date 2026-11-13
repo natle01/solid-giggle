@@ -1,46 +1,31 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { NavLink, Route, RouteProps, Routes } from 'react-router-dom';
+import { Link as RouterLink, NavLink, Route, Routes, useLocation, useMatch } from 'react-router-dom';
 import {
   Button,
   ToggleButton,
-  // MenuIcon,
-  // MoonFillIcon,
-  // MoonOutlineIcon,
-  // SunFillIcon,
-  // SunOutlineIcon
+  MenuIcon,
+  MoonFillIcon,
+  MoonOutlineIcon,
+  SunFillIcon,
+  SunOutlineIcon
 } from '@natle01/laughing-kookaburra';
 
-import HomePage from './pages/HomePage/HomePage';
-import ContactPage from './pages/ContactPage/ContactPage';
-import Projects from './pages/Projects/Projects';
+import { PAGES, ROUTES, ROUTES_EXT } from './routes';
 import { isTabletMode, mergeClasses, prefersDarkMode } from './utils/utilities';
+import { FernIcon, KangarooIcon, KiwiIcon, MapleLeafIcon, MooseIcon } from './icons/icons';
 
 import styles from './App.module.css';
-
-import Fern from './icons/new-zealand-fern.svg'
-import Kangaroo from './icons/australia-kangaroo.svg'
-import MapleLeaf from './icons/canada-maple-leaf.svg'
-import Moose from './icons/canada-moose.svg'
-import Kiwi from './icons/new-zealand-kiwi.svg'
 
 // The alternative color scheme to swap to.
 const colorScheme = prefersDarkMode ? 'light' : 'dark';
 
-const ROUTES: RouteProps[] = [
-  { path: '/', children: 'Home', element: <HomePage /> },
-  { path: '/Projects', children: 'Projects', element: <Projects /> },
-  { path: '/contact', children: 'Contact', element: <ContactPage /> }
-];
-
-const LINKS = ROUTES.map(({ path, ...route }) => ({
-  to: path as string,
-  ...route
+const LINKS = ROUTES.map(({ path, children }) => ({
+  to: path,
+  children
 }));
 
-// const DarkIcon = ({ filled }: { filled?: boolean; }) => filled ? <MoonFillIcon /> : <MoonOutlineIcon />;
-// const SunIcon = ({ filled }: { filled?: boolean; }) => filled ? <SunFillIcon /> : <SunOutlineIcon />;
-const DarkIcon = ({ }: { filled?: boolean; }) => '🌒';
-const SunIcon = ({ }: { filled?: boolean; }) => '☀️';
+const DarkIcon = ({ filled }: { filled?: boolean; }) => filled ? <MoonFillIcon /> : <MoonOutlineIcon />;
+const SunIcon = ({ filled }: { filled?: boolean; }) => filled ? <SunFillIcon /> : <SunOutlineIcon />;
 
 const Background = (props: React.ComponentProps<'div'>) => (
   <div aria-hidden {...props} className={mergeClasses(styles.background, props.className)} />
@@ -58,7 +43,6 @@ const Navigation = ({ setIsOpen }: {
         className={({ isActive }) =>
           mergeClasses(styles.navItem, isActive && styles.active)
         }
-        end
         {...link}
       />
     ))}
@@ -69,12 +53,14 @@ const ModeButton = ({ swapMode, setSwapMode }: {
   swapMode: boolean;
   setSwapMode: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const TOOLTIP = `${colorScheme.charAt(0).toUpperCase()}${colorScheme.slice(1)} mode`;
   const handleModeSwap = useCallback((): void => setSwapMode((swapMode) => !swapMode), []);
   return (
     <ToggleButton
-      aria-label={`Enable ${colorScheme} mode`}
+      aria-label={TOOLTIP}
       className={styles.modeButton}
       onClick={handleModeSwap}
+      title={TOOLTIP}
     >
       {colorScheme === 'dark' ? <DarkIcon filled={swapMode} /> : <SunIcon filled={swapMode} />}
     </ToggleButton>
@@ -82,6 +68,7 @@ const ModeButton = ({ swapMode, setSwapMode }: {
 }
 
 const MenuButton = () => {
+  const TOOLTIP = 'Navigation menu';
   const ref = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = useCallback(() => setIsOpen((isOpen) => !isOpen), []);
@@ -109,10 +96,11 @@ const MenuButton = () => {
         className={styles.menuButton}
         aria-expanded={isOpen}
         aria-controls='nav-flyout'
-        aria-label='Navigation menu'
+        aria-label={TOOLTIP}
         onClick={handleClick}
+        title={TOOLTIP}
       >
-        🟰{/* <MenuIcon /> */}
+        <MenuIcon />
       </Button>
       <div id='nav-flyout' data-open={isOpen} className={styles.flyoutMenu} >
         <Navigation setIsOpen={setIsOpen} />
@@ -121,24 +109,43 @@ const MenuButton = () => {
   );
 };
 
+const Breadcrumb = () => {
+  const isSlug = useMatch('/projects/:slug');
+  if (!isSlug) return;
+
+  const projectTitle = PAGES.project.getTitle?.(isSlug.params.slug);
+  return (
+    <nav className={styles.breadcrumbRow} aria-label='Breadcrumb'>
+      <RouterLink to={PAGES.projects.path}>{PAGES.projects.children}</RouterLink>
+      <span aria-hidden='true'> / </span>
+      <span aria-current='page'>{projectTitle}</span>
+    </nav>
+  )
+}
+
 /**
  * The main application component that sets up routing and navigation.
  * @returns A React.ReactElement  element.
 */
 const App = (): React.ReactElement => {
   const [swapMode, setSwapMode] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    document.body.style.colorScheme = swapMode ? colorScheme : '';
+  }, [swapMode])
 
   return (
-    <div className={styles.app} style={{ colorScheme: swapMode ? colorScheme : 'normal' }}>
+    <div className={styles.app}>
       <Background className={styles.appBackground}>
-        <img src={Fern} className={styles.fern} />
-        <img src={MapleLeaf} className={styles.mapleLeaf} />
+        <FernIcon className={styles.fern} />
+        <MapleLeafIcon className={styles.mapleLeaf} />
       </Background>
       <header className={styles.banner}>
         <Background className={styles.headerBackground}>
-          <img src={Kiwi} className={styles.kiwi} />
-          <img src={Kangaroo} className={styles.kangaroo} />
-          <img src={Moose} className={styles.moose} />
+          <KiwiIcon className={styles.kiwi} />
+          <KangarooIcon className={styles.kangaroo} />
+          <MooseIcon className={styles.moose} />
         </Background>
         <h1 className={styles.logo}>Welcome</h1>
         {!isTabletMode ?
@@ -152,12 +159,13 @@ const App = (): React.ReactElement => {
           </div>
         }
       </header>
+      <Breadcrumb />
 
-      <div className={styles.pageContent}>
+      <div key={pathname} className={styles.pageContent}>
         <main>
           <Routes>
-            {ROUTES.map(({ element, ...route }) => (
-              <Route key={route.path} {...route} element={element} />
+            {[...ROUTES, ...ROUTES_EXT].map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
             ))}
           </Routes>
         </main>

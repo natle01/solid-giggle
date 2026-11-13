@@ -1,4 +1,4 @@
-import { Container, ContainerHeader } from '../../../components/Container/Container';
+import { Container, ContainerHeading } from '../../../components/Container/Container';
 import styles from './QualificationsSection.module.css';
 
 import QUTLogo from './qut-logo.jpg';
@@ -22,11 +22,11 @@ const QUALIFICATIONS: Experience[] = [
 
 /**
  * A section displaying my educational qualifications.
- * @returns A React.ReactElement  element.
+ * @returns A React.ReactElement.
  */
 const QualificationsSection = (): React.ReactElement => (
-  <Container appearance='transparent'>
-    <ContainerHeader>Qualifications 🎓</ContainerHeader>
+  <Container appearance='transparent' role='section'>
+    <ContainerHeading>Qualifications <span aria-hidden>🎓</span></ContainerHeading>
     {QUALIFICATIONS.map(({ degree, school, period, description }) => (
       <article className={styles.entry} key={school}>
         <div className={styles.meta}>

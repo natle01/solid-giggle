@@ -1,4 +1,4 @@
-import type { ProjectDetails } from '../Projects';
+import type { ProjectDetails } from '../examples';
 import SharePointLogo from '../../../icons/sharePoint-logo.webp';
 
 const blurb = 'A new design system launched for SharePoint\'s 25th anniversary to modernize the platform\'s look and feel. The update simplifies the user experience, improves clarity, and places a stronger focus on user content';
@@ -13,6 +13,7 @@ const description = `
 `;
 
 export const projectDetails: ProjectDetails = {
+  ext: 'sharepoint-visual-refresh',
   title: 'SharePoint Visual Refresh',
   isNDA: true,
   url: 'https://techcommunity.microsoft.com/blog/spblog/a-new-sharepoint-look-and-feel-what%E2%80%99s-changing-and-why-it-matters/4529776',

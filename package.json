@@ -4,6 +4,7 @@
   "private": true,
   "version": "0.1.0",
   "author": "Natalie Wainwright",
+  "homepage": "https://natle01.github.io/solid-giggle",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -16,7 +17,7 @@
     "format:check": "prettier . --check"
   },
   "dependencies": {
-    "@natle01/laughing-kookaburra": "^0.1.1",
+    "@natle01/laughing-kookaburra": "^0.1.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-markdown": "^10.1.0",

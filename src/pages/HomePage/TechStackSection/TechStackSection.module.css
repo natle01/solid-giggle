@@ -6,12 +6,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 1rem;
 }
 
 .techStackPill {
   position: relative;
   transition: transform 300ms ease;
+  font-size: 3rem;
+  width: 50px;
+  height: 50px;
+  padding: var(--global-space-4);
+  /* border-radius: var(--global-radius-sm) var(--global-radius-sm) 20px 20px; */
 }
 
 @media (hover: hover) {
@@ -28,12 +33,14 @@
   50% {
     transform: translateY(-5px);
   }
+
   100% {
     transform: translateY(0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .techStackPill:hover,
   .techStackPill.inView {
     transform: none;

@@ -1,4 +1,4 @@
-import type { ProjectDetails } from '../Projects';
+import type { ProjectDetails } from '../examples';
 
 const blurb = 'Showcase Website built to demonstrate the real-world application of the Laughing Kookaburra Design System.';
 const description = `${blurb}
@@ -9,6 +9,7 @@ const description = `${blurb}
 `;
 
 export const projectDetails: ProjectDetails = {
+  ext: 'recipe-generator',
   title: 'Recipe Generator',
   url: '',
   urlLabel: '',
@@ -17,5 +18,3 @@ export const projectDetails: ProjectDetails = {
   description,
   tech: ['typescript', 'react', 'css']
 };
-
-

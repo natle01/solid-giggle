@@ -1,15 +1,66 @@
-import { useCallback, useEffect, useRef, type CSSProperties } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, type CSSProperties } from 'react';
+import {
+  AngularIcon,
+  GitHubIcon,
+  Html5Icon,
+  JavaScriptIcon,
+  NodeJSIcon,
+  NpmIcon,
+  ReactIcon,
+  SassIcon,
+  StorybookIcon,
+  TypeScriptIcon,
+  ViteIcon
+} from '@natle01/laughing-kookaburra';
+
 import { Pill } from '../../../components/Pill/Pill';
-import { Container, ContainerHeader } from '../../../components/Container/Container';
+import { Container, ContainerHeading } from '../../../components/Container/Container';
 import { Sparkle } from '../../../components/Sparkle/Sparkle';
 import { useInView } from '../../../utils/useInView';
 import { hasHoverSupport, mergeClasses } from '../../../utils/utilities';
-import { techStack } from '../../Projects/Projects';
-import type { TechnologyItem } from '../../Projects/Projects';
 
 import styles from './TechStackSection.module.css';
 
 const ANIMATION_DELAY = 150;
+
+/**
+ * Tech stack and languages used.
+ */
+export type Technology = keyof typeof techStack;
+
+/**
+ * Technology stack item.
+ */
+export type TechnologyItem = {
+  label?: string;
+  icon?: string;
+  children?: ReactNode;
+};
+
+/**
+ * A record of tech stack with their labels and icons.
+ */
+export const techStack: Record<string, TechnologyItem> = {
+  azureDevOps: { label: 'Azure DevOps', icon: '☁️' },
+  typescript: { label: 'TypeScript', children: <TypeScriptIcon /> },
+  javascript: { label: 'JavaScript', children: <JavaScriptIcon /> },
+  html: { label: 'HTML5', children: <Html5Icon /> },
+  css: { label: 'CSS', icon: '🌈' },
+  'c#': { label: 'C#', icon: '🧩' },
+  sass: { label: 'SASS', children: <SassIcon /> },
+  react: { label: 'React', children: <ReactIcon /> },
+  angular: { label: 'Angular', children: <AngularIcon /> },
+  nodejs: { label: 'NodeJS', children: <NodeJSIcon /> },
+  jest: { label: 'Jest', icon: '🧪' },
+  mocha: { label: 'Mocha/Chai', icon: '🧪' },
+  npm: { label: 'npm', children: <NpmIcon /> },
+  git: { label: 'Git', children: <GitHubIcon /> },
+  fluent: { label: 'Fluent', icon: '🎨' },
+  storybook: { label: 'Storybook', children: <StorybookIcon /> },
+  figma: { label: 'Figma', icon: '👨‍🎨' },
+  vite: { label: 'Vite', children: <ViteIcon /> },
+  webpack: { label: 'Webpack', icon: '🏗️' }
+};
 
 const TechStackPill = (
   props: TechnologyItem & {
@@ -18,7 +69,7 @@ const TechStackPill = (
     supportsHover: boolean;
   }
 ): React.ReactElement => {
-  const { index, isContainerInView, supportsHover, ...item } = props;
+  const { index, isContainerInView, supportsHover, children, ...item } = props;
   const animationDelay = index * ANIMATION_DELAY;
   const sparkleAnimation = useRef<Animation | null>(null);
 
@@ -41,14 +92,14 @@ const TechStackPill = (
 
   return (
     <Pill
-      className={mergeClasses(
-        styles.techStackPill,
-        isContainerInView && styles.inView
-      )}
+      variant='transparent'
+      className={mergeClasses(styles.techStackPill, isContainerInView && styles.inView)}
       style={{ '--animation-delay': `${animationDelay}ms` } as CSSProperties}
       onMouseEnter={supportsHover ? handleMouseEnter : undefined}
+      title={item.label}
       {...item}
     >
+      {children}
       <Sparkle
         options={{ fade: true }}
         onAnimationReady={handleAnimationReady}
@@ -59,7 +110,7 @@ const TechStackPill = (
 
 /**
  * A section displaying the technology stack I use.
- * @returns A React.ReactElement  element.
+ * @returns A React.ReactElement.
  */
 const TechStackSection = (): React.ReactElement => {
   const pillContainerRef = useRef<HTMLDivElement>(null);
@@ -68,14 +119,16 @@ const TechStackSection = (): React.ReactElement => {
     threshold: 0.3,
     rootMargin: '0px 0px -20% 0px'
   });
+  const PILLS_ARIA_LABEL = `${Object.values(techStack).map(item => item.label).join(', ')}`;
 
   return (
-    <Container appearance='transparent' className={styles.techStack}>
-      <ContainerHeader>Tech Stack 👾</ContainerHeader>
-      <div ref={pillContainerRef} className={styles.pillContainer}>
+    <Container appearance='transparent' className={styles.techStack} role='section'>
+      <ContainerHeading>Tech Stack <span aria-hidden>👾</span></ContainerHeading>
+      <div role='group' ref={pillContainerRef} className={styles.pillContainer} aria-label={PILLS_ARIA_LABEL}>
         {Object.values(techStack).map((item, index) => (
           <TechStackPill
             key={item.label}
+            aria-hidden
             index={index}
             isContainerInView={isPillContainerInView}
             supportsHover={supportsHover}

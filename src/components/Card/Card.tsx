@@ -6,9 +6,7 @@ import styles from './Card.module.css';
 /**
  * Props for the CardImage component.
  */
-export type CardImageProps = ComponentPropsWithoutRef<'img'> & {
-  placeholderLabel?: string;
-};
+export type CardImageProps = ComponentPropsWithoutRef<'img'>;
 
 /**
  * A card image with a built-in placeholder fallback.
@@ -19,26 +17,18 @@ export type CardImageProps = ComponentPropsWithoutRef<'img'> & {
 export const CardImage = ({
   src,
   alt = '',
-  placeholderLabel = 'Placeholder',
   className,
   ...rest
-}: CardImageProps): React.ReactElement =>
-  src ? (
+}: CardImageProps): React.ReactElement => (
+  <div className={styles.cardImageContainer}>
     <img
       src={src}
       alt={alt}
       className={mergeClasses(styles.cardImage, className)}
       {...rest}
     />
-  ) : (
-    <div
-      className={mergeClasses(styles.placeholderImage, className)}
-      role='img'
-      aria-label={placeholderLabel}
-    >
-      Placeholder image
-    </div>
-  );
+  </div>
+);
 
 /**
  * A reusable body container for card content.
@@ -105,5 +95,5 @@ export const Card = ({
       className
     )}
     {...rest}
-  ></article>
+  />
 );

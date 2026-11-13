@@ -1,5 +1,5 @@
 import { Blockquote } from '../../../components/Blockquote/Blockquote';
-import { Container } from '../../../components/Container/Container';
+import { Container, ContainerHeading } from '../../../components/Container/Container';
 import { prefersDarkMode } from '../../../utils/utilities';
 
 import styles from './ProfileSection.module.css';
@@ -31,44 +31,44 @@ const TAGS: string[] = [
 
 /**
  * A section displaying my information, skills, and a brief bio.
- * @returns A React.ReactElement  element.
+ * @returns A React.ReactElement.
  */
-const ProfileSection = (): React.ReactElement => {
-  return (
-    <Container className={styles.profile}>
-      <p className={styles.jobTitle}>User Experience Engineer</p>
-      <h2 className={styles.name}>Natalie Wainwright</h2>
-      <div className={styles.flagRow} aria-label='Work rights in Canada, Australia, New Zealand'>
-        <img src={CanadaLogo} title='Canada' />
-        <img src={AustraliaLogo} title='Australia' />
-        <img src={NewZealandLogo} title='New Zealand' />
+const ProfileSection = (): React.ReactElement => (
+  <Container className={styles.profile} role='section'>
+    <ContainerHeading aria-level={2} className={styles.name}>
+      Natalie Wainwright
+    </ContainerHeading>
+    <p className={styles.jobTitle}>Front-End | User Experience Engineer</p>
+    <div className={styles.flagRow} aria-label='Work rights in Canada, Australia, New Zealand'>
+      <img src={CanadaLogo} title='Canada' />
+      <img src={AustraliaLogo} title='Australia' />
+      <img src={NewZealandLogo} title='New Zealand' />
+    </div>
+    <div className={styles.tagContainer}>
+      {TAGS.map((tag) => (
+        <span key={tag} className={styles.hashTag}>
+          {tag}
+        </span>
+      ))}
+    </div>
+    <Blockquote>
+      10+ years crafting intuitive software that is beautiful, accessible, and performant.
+    </Blockquote>
+    <div className={styles.details}>
+      <img className={styles.webImage} src={prefersDarkMode ? DarkImage : LightImage} alt='' />
+      <div>
+        <p>
+          I'm a software engineer focused on perfecting the client-side experience.
+        </p>
+        <p>
+          My background is seasoned with design, core infrastructure, and back-end development, allowing me to bridge the gap between design and engineering.
+        </p>
+        <p>
+          I bring these disciplines together to build seamless, production-ready applications from the ground up.
+        </p>
       </div>
-      <div className={styles.tagContainer}>
-        {TAGS.map((tag) => (
-          <span key={tag} className={styles.hashTag}>
-            {tag}
-          </span>
-        ))}
-      </div>
-      <Blockquote>
-        10+ years crafting intuitive software that is beautiful, accessible, and performant.
-      </Blockquote>
-      <div className={styles.details}>
-        <img className={styles.webImage} src={prefersDarkMode ? DarkImage : LightImage} alt='' />
-        <div>
-          <p>
-            I'm a software engineer focused on perfecting the client-side experience.
-          </p>
-          <p>
-            My background is seasoned with design, core infrastructure, and back-end development, allowing me to bridge the gap between design and engineering.
-          </p>
-          <p>
-            I bring these disciplines together to build seamless, production-ready applications from the ground up.
-          </p>
-        </div>
-      </div>
-    </Container>
-  );
-};
+    </div>
+  </Container>
+);
 
 export default ProfileSection;

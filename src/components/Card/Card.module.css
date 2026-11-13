@@ -4,42 +4,39 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
+    background-color: var(--global-color-canvas);
+    border: 1px solid var(--global-color-border);
     border-radius: 12px;
     overflow: hidden;
     transition: border-color 500ms ease;
   }
 
   .card--animate:hover {
-    border-color: var(--border-bright);
+    background-color: var(--global-color-surface);
+    border-color: var(--global-color-border-strong);
     cursor: pointer;
   }
 
   .card--animate:hover .cardImage {
-    transform: scale(1.03);
+    transform: scale(1.1);
   }
 
   .card--flat {
-    background-color: var(--bg);
+    background-color: var(--global-color-surface);
+  }
+
+  .cardImageContainer {
+    overflow: hidden;
+    height: 160px;
+    width: 100%;
+    background-color: light-dark(#000, #fff);
   }
 
   .cardImage {
-    width: 100%;
-    height: 160px;
     object-fit: cover;
+    height: inherit;
+    width: inherit;
     transition: transform 500ms ease;
-  }
-
-  .placeholderImage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 160px;
-    max-height: 220px;
-    background: black;
-    border-radius: 12px;
-    border: 1px solid var(--border);
   }
 
   .cardBody {
