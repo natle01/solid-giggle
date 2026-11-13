@@ -119,12 +119,12 @@ const TechStackSection = (): React.ReactElement => {
     threshold: 0.3,
     rootMargin: '0px 0px -20% 0px'
   });
-  const ariaLabel = `${Object.values(techStack).map(item => item.label).join(', ')}`;
+  const PILLS_ARIA_LABEL = `${Object.values(techStack).map(item => item.label).join(', ')}`;
 
   return (
     <Container appearance='transparent' className={styles.techStack} role='section'>
       <ContainerHeading>Tech Stack <span aria-hidden>👾</span></ContainerHeading>
-      <div ref={pillContainerRef} className={styles.pillContainer} aria-label={ariaLabel}>
+      <div role='group' ref={pillContainerRef} className={styles.pillContainer} aria-label={PILLS_ARIA_LABEL}>
         {Object.values(techStack).map((item, index) => (
           <TechStackPill
             key={item.label}

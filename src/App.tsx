@@ -43,7 +43,6 @@ const Navigation = ({ setIsOpen }: {
         className={({ isActive }) =>
           mergeClasses(styles.navItem, isActive && styles.active)
         }
-        end
         {...link}
       />
     ))}
@@ -54,12 +53,14 @@ const ModeButton = ({ swapMode, setSwapMode }: {
   swapMode: boolean;
   setSwapMode: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const TOOLTIP = `${colorScheme.charAt(0).toUpperCase()}${colorScheme.slice(1)} mode`;
   const handleModeSwap = useCallback((): void => setSwapMode((swapMode) => !swapMode), []);
   return (
     <ToggleButton
-      aria-label={`Enable ${colorScheme} mode`}
+      aria-label={TOOLTIP}
       className={styles.modeButton}
       onClick={handleModeSwap}
+      title={TOOLTIP}
     >
       {colorScheme === 'dark' ? <DarkIcon filled={swapMode} /> : <SunIcon filled={swapMode} />}
     </ToggleButton>
@@ -67,6 +68,7 @@ const ModeButton = ({ swapMode, setSwapMode }: {
 }
 
 const MenuButton = () => {
+  const TOOLTIP = 'Navigation menu';
   const ref = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = useCallback(() => setIsOpen((isOpen) => !isOpen), []);
@@ -94,8 +96,9 @@ const MenuButton = () => {
         className={styles.menuButton}
         aria-expanded={isOpen}
         aria-controls='nav-flyout'
-        aria-label='Navigation menu'
+        aria-label={TOOLTIP}
         onClick={handleClick}
+        title={TOOLTIP}
       >
         <MenuIcon />
       </Button>
